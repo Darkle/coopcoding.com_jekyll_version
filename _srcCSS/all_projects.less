@@ -1,0 +1,62 @@
+/***************************
+  Projects Page
+****************************/
+
+.projects-page .projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.projects-page .project-listing {
+  display: flex;
+  border: 8px solid #ef8b80;
+  margin: 20px 0;
+  padding: 10px 10px 0 10px;
+  transition: border 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.projects-page .project-listing:first-child {
+  margin-top: 40px;
+}
+
+.projects-page .project-listing:hover {
+  border: 8px solid #3c82e7;
+  color: #3c82e7;
+}
+
+.projects-page .project-listing .img-wrapper {
+  flex: 1;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  max-width: 240px;
+}
+
+.projects-page .project-listing .project-screenshot-img {
+  max-width: 240px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.projects-page .project-listing .project-screenshot-svg {
+  display: none;
+}
+
+.projects-page .project-title {
+  margin-top: 0.5rem;
+}
+
+.projects-page .project-details {
+  flex: 2;
+  margin-left: 20px;
+}
+
+.projects-page .project-details .project-title {
+  margin-top: 10px;
+}
+
+.projects-page .project-details .project-description {
+  margin-top: -8px;
+  color: grey;
+}

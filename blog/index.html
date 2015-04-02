@@ -1,0 +1,48 @@
+---
+layout: default
+cssBodyClass: blog-posts
+title: Coop.Coding Blog
+---
+
+<section class="recent-blog-posts">
+
+  <div class="section-headings">
+    <a href="{{ site.url }}/blog/">
+      <h1>Blog Posts</h1>
+    </a>
+  </div>
+
+  {% for post in site.categories.blog %}
+  <article>
+    <header>
+      <h2>
+        <a class="post-link-header" href="{{ post.url }}">{{ post.title }}</a>
+      </h2>
+      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+    </header>
+
+    <section class="blog-post-section">
+      {{ post.content | truncatewords:75 }}
+
+      <div class="gradient-hide"></div>
+
+    </section>
+
+    <section class="blog-post-section">
+      <a class="full-article-link" href="{{ post.url }}">Read Full Article</a>
+    </section>
+
+    <footer>
+      <ul class="tags">
+      {% for tag in post.tags %}
+        <li class="tag-item">
+          <a href="{{ site.url }}/tag/{{ tag }}">{{ tag }}</a>
+          <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
+        </li>
+      {% endfor %}
+      </ul>
+    </footer>
+  </article>
+  {% endfor %}
+
+</section>

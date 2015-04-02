@@ -1,0 +1,57 @@
+# Site settings
+title: Coop...Coding
+name: Coop.Coding
+email: coop.coding@gmail.com
+description: Coop...Coding
+defaultkeywords: "coding programming blog"
+baseurl: "" # the subpath of your site, e.g. /blog/
+# url: "http://coopcoding.com"
+url: "http://localhost:4000"
+twitter_username: CoopCoding
+github_username:  Darkle
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+# permalink: pretty
+permalink: /:categories/:title
+# paginate_path: "/blog/page:num/"
+destination: ../coopcoding.com_deploy
+exclude: [config.codekit]
+include: [".htaccess", ".nojekyll"]
+
+
+# defaults
+defaults:
+  -
+    scope:
+      path: "blog"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "blog"
+      # cssBodyClass: "single-blog-post"
+  -
+    scope:
+      path: "projects"
+      type: "posts"
+    values:
+      layout: "project"
+      category: "projects"
+      # cssBodyClass: "single-project-page"
+
+#CSS/SASS
+# sass:
+#     style: :compressed
+
+sitemap:
+    file: "/sitemap.xml"
+    exclude:
+        - "/atom.xml"
+        - "/feed.xml"
+        - "/feed/index.xml"
+        - "/404.html"
+    include_posts:
+        - "/index.html"
+    change_frequency_name: "change_frequency"
+    priority_name: "priority"

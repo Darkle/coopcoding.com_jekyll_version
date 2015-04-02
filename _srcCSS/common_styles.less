@@ -1,0 +1,342 @@
+/**
+Inspired by https://github.com/poole/poole/blob/master/public/css/poole.css
+& http://theme.wordpress.com/themes/writr/
+& http://ponyfoo.com/
+svg nave image from https://github.com/dbushell/Responsive-Off-Canvas-Menu/tree/master/img
+colour scheme: http://paletton.com/#uid=15A0u0kkhr3aqGVfLvwoBnxseiC;
+#D24D57 - base
+#FBA9AF
+#F57C85
+#B72A34
+#91111A
++#ffd2d2 - pink
++#268bd2 - blue
+#ffd2d2; - this grey kinda works
+***/
+
+/***************************
+  Styles for all pages
+****************************/
+
+html {
+  font-size: 20px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #303030;
+  margin: 0;
+  padding: 0;
+  color: #515151;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/*************************
+common sections
+*************************/
+
+
+/***************************
+  Main Content
+****************************/
+
+.main-content {
+  max-width: 1020px;
+  min-height: 100vh;
+  margin-right: 40px;
+  margin-left: 17rem;
+}
+
+.main-content>section {
+  padding-bottom: 80px;
+  background-color: #ffffff;
+  padding: 0 60px;
+
+}
+
+.section-headings {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.section-headings a {
+  color: #313131;
+  text-decoration: none;
+}
+
+/*************************
+mobile header
+*************************/
+
+.mobile-header {
+  background-color: #D24D57;
+  padding: 0.8rem 0;
+  display: none;
+}
+
+.mobile-header h1 {
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-size: 1.45rem;
+  text-transform: uppercase;
+  font-family: 'Source Code Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.0625rem;
+}
+
+#mobileMenButton {
+  background: #D24D57 url("/assets/images/mobileNavigation/nav-icon.svg") left center no-repeat;
+  background-size: 1.875em 1.5em;
+  width: 2.625rem;
+  height: 2.25rem;
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  border: 0;
+  padding: 0;
+  outline: none;
+  z-index: 101;
+}
+
+
+/*************************
+sidebar
+*************************/
+
+.sidebar {
+  width: 15rem;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  font-size: 0.8rem;
+  background-color: #D24D57;
+  color: white;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.site-logo {
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  display: block;
+}
+
+.site-logo img {
+  border-radius: 50%;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+
+.site-branding {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.site-branding .site-title {
+  padding: 0 0 5px;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 0.0625rem;
+  font-family: 'Source Code Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*************************
+sidebar navigation
+*************************/
+
+.sidebar .main-navigation {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+
+.sidebar .main-navigation a {
+  padding: 20px 35px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  /*letter-spacing: 0.01rem;*/
+  letter-spacing: 0.07rem;
+}
+
+.sidebar .main-navigation a:hover {
+  background-color: #3c82e7;
+}
+
+.sidebar .main-navigation>a.nav-active {
+  background-color: #303030;
+}
+
+.sidebar .main-navigation>a.nav-active:hover {
+  background-color: #3c82e7;
+}
+
+.sidebar .main-navigation>a.sub-link {
+  padding-left: 60px;
+  text-transform: capitalize;
+}
+
+.sidebar .main-navigation>a.nav-active.sub-link div {
+  border-bottom: 1px solid #3c82e7;
+  width: auto;
+  float: left;
+}
+
+.sidebar .main-navigation>a.sub-link:hover {
+  background-color: #303030;
+}
+
+
+/*************************
+search
+*************************/
+
+.sidebar .nav-search {
+  color: black;
+  width: 100%;
+  overflow: hidden;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar .nav-search.hiddenSearch {
+  display: none;
+}
+
+.sidebar .nav-search .searchbox-label {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+.sidebar .nav-search .searchInput {
+  width: 182px;
+  height: 2rem;
+  padding: 0 17px 0 35px;
+  height: 100%;
+  font-size: 16px;
+}
+
+.sidebar .nav-search button {
+  border: none;
+  width: 40%;
+}
+
+/*************************
+recent posts
+*************************/
+
+.sidebar .sidebar-recent-posts {
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid #303030;
+  margin-bottom: 40px;
+}
+
+.sidebar .sidebar-recent-posts h3 {
+  padding: 0 35px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.01rem;
+  margin-bottom: 0;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.sidebar .sidebar-recent-posts ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.sidebar .sidebar-recent-posts ul a {
+  padding: 15px 5px 10px 60px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.01rem;
+  width: 90%;
+  float: left;
+}
+
+.sidebar .sidebar-recent-posts ul a:hover {
+  background-color: #3c82e7;
+}
+
+/*************************
+#tags
+*************************/
+
+.tags {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tag-item a {
+  margin-right: 7px;
+  background-color: #ffd2d2;
+  font-size: 0.85rem;
+  padding: 2px 5px;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  border-bottom: none;
+  border-left: 3px solid white;
+  margin-bottom: 0px;
+  position: relative;
+  z-index: 10;
+}
+
+
+.tags .tag-item:first-of-type a {
+   margin-left: -3px;
+}
+
+/*.tag-item a:hover {
+  border-top: 3px solid #F57C85;
+  border-right: 3px solid #F57C85;
+  border-bottom: 3px solid #ffd2d2;
+  border-left: 3px solid #F57C85;
+  text-decoration: none;
+}*/
+
+/*.tag-item:hover .tag-description {
+  display: block;
+}*/
+
+/*.tag-item .tag-description {
+  position: absolute;
+  z-index: 9;
+  display: none;
+  padding: 0 3px;
+  border-top: none;
+  background-color: #ffd2d2;
+  border: 3px solid #F57C85;
+  margin-left: -3px;
+  margin-top: -2px;
+}*/

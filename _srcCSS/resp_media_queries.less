@@ -1,0 +1,409 @@
+/***************************
+  Responsive Media Queries
+****************************/
+
+/*********************************************
+General
+*********************************************/
+
+/************
+from poole css base
+https://github.com/poole/poole/blob/master/public/css/poole.css
+*************/
+@media (min-width: 30em) {
+  blockquote {
+    padding-right: 5rem;
+    padding-left: 2.8rem;
+  }
+}
+
+/************
+1335px & less
+*************/
+
+@media (max-width: 1335px) {
+  .sidebar {
+    width: 12rem;
+  }
+  .main-content {
+    margin-left: 14rem;
+  }
+  .site-logo {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+
+  }
+
+}
+
+/************
+940px & less
+*************/
+
+@media (max-width: 940px) {
+  html {
+    font-size: 16px;
+  }
+  .site-logo img {
+    width: 100px;
+  }
+  .sidebar .nav-search button {
+    width: 50%;
+  }
+}
+
+/************
+750px & less
+*************/
+
+@media (max-width: 750px) {
+  .main-content {
+    margin-right: 0;
+  }
+  .main-content {
+    margin-left: 12rem;
+  }
+}
+
+/************
+700px & less
+*************/
+
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+    width: 100%;
+  }
+  .sidebar-mobileMenu {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar .site-branding {
+    display: none;
+  }
+  .sidebar .site-logo {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar .main-navigation{
+    flex: 1;
+  }
+  .sidebar .main-navigation a {
+    text-align: center;
+    border-top: 2px solid #303030;
+    border-bottom: 2px solid #303030;
+    font-size: 1.5rem;
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sidebar .main-navigation a:first-child {
+    border-top: 4px solid #303030;
+  }
+  .sidebar .main-navigation a:last-child {
+    border-bottom: 4px solid #303030;
+  }
+  .sidebar .nav-search .searchInput {
+    width: 100%;
+  }
+  .sidebar .nav-search button {
+    display: none;
+  }
+  .sidebar .main-navigation>a.nav-active {
+    background-color: #D24D57;
+  }
+  .sidebar .main-navigation .sub-link {
+    display: none;
+  }
+  .sidebar .sidebar-recent-posts {
+    display: none;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+  .main-content-toggle {
+    display: none;
+  }
+  .mobile-header {
+    display: block;
+  }
+  .mobile-header #mobileMenButton.mobileMenButton-position {
+    position: fixed;
+    padding-bottom: 60px;
+    padding-right: 80px;
+    top: 0;
+  }
+}
+
+@media (max-width: 700px) and (orientation : landscape) {
+
+  .sidebar .main-navigation {
+    flex-direction: row;
+  }
+
+  .sidebar .main-navigation a {
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  .sidebar .main-navigation a:first-of-type {
+    border-top: 2px solid #303030;
+  }
+  .sidebar .main-navigation a:last-of-type {
+    border-bottom: 2px solid #303030;
+  }
+  .sidebar .nav-search {
+    position: absolute;
+    top: 200px;
+    left: 0;
+  }
+
+}
+
+/************
+500px & less
+for phones and tablets
+*************/
+
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/*********************************************
+Page Specific
+*********************************************/
+
+/************
+front page
+*************/
+@media (max-width: 1178px) {
+  .frontpage .recent-projects>a:nth-child(1n+6) {
+    display: none;
+  }
+}
+
+@media (max-width: 945px) {
+  .frontpage .recent-projects>a {
+    height: 201px;
+    width: 248px;
+  }
+  .frontpage .recent-projects .primary-project-image {
+    height: 144px;
+    width: 220px;
+  }
+  .frontpage .recent-projects>a:hover .project-info {
+    top: -150px;
+    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  }
+}
+
+@media (max-width: 804px) {
+  .frontpage .recent-projects>a:nth-child(1n+4) {
+    display: none;
+  }
+  .frontpage .recent-projects>a {
+    height: 181px;
+    width: 208px;
+  }
+  .frontpage .recent-projects .primary-project-image {
+    height: 124px;
+    width: 180px;
+  }
+  .frontpage .recent-projects>a:hover .project-info {
+    top: -130px;
+    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  }
+}
+
+@media (max-width: 600px) {
+  .frontpage .recent-projects>a {
+    height: 171px;
+    border: 4px solid #F57C85;
+  }
+  .frontpage .recent-projects>a:hover .project-info {
+    top:0;
+  }
+  .frontpage .recent-projects .primary-project-image {
+    width: 188px;
+  }
+  .frontpage .recent-projects .project-info {
+    margin-top: 6px;
+  }
+  .frontpage .recent-projects .project-title {
+    font-size: 16px;
+  }
+  .frontpage .recent-blog-posts {
+     padding: 0 25px;
+  }
+  .frontpage .recent-blog-posts article {
+    border: 4px solid #F57C85;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .frontpage .blog-post-section>p:nth-of-type(1) {
+    max-height: 130px;
+    overflow: hidden;
+  }
+  .frontpage .blog-post-section>p:nth-of-type(2) {
+    display: none;
+  }
+  .frontpage .recent-blog-posts .blog-post-section .gradient-hide {
+    background: -webkit-linear-gradient( bottom, rgb(255,255,255) 1%, rgba(255, 255, 255, 0) 100% );
+    width: 100%;
+  }
+  .frontpage .recent-blog-posts article footer{
+    margin-top: 10px;
+  }
+  .frontpage .recent-blog-posts .tag-item {
+    margin: 0;
+  }
+  .frontpage .recent-blog-posts .tag-item a {
+    margin: 0;
+  }
+}
+
+
+/************
+projects page
+*************/
+@media (max-width: 1140px) {
+  .projects-page .project-details {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 440px) {
+  .projects-page .project-listing {
+    flex-direction: column;
+  }
+  .projects-page .project-listing .img-wrapper {
+    display: none;
+  }
+  .projects-page .project-details {
+    margin: 6px 6px 0 6px;
+  }
+  .projects-page .project-details .project-title {
+    margin-bottom: 15px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .projects-page .project-listing .project-screenshot-svg {
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    width: 100%;
+  }
+}
+/************
+Single Project Page
+*************/
+@media (max-width: 600px) {
+  .single-project-page .project-page-container {
+    padding: 5px 25px;
+  }
+  .single-project-page .project-header {
+    margin-bottom: 1rem;
+  }
+}
+/************
+Blog Posts
+*************/
+@media (max-width: 500px) {
+  .blog-posts .recent-blog-posts {
+    padding: 0 25px;
+  }
+  .blog-posts .recent-blog-posts article {
+    border: 4px solid #F57C85;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .blog-posts .blog-post-section>p:nth-of-type(1) {
+    max-height: 100px;
+    overflow: hidden;
+  }
+  .blog-posts .blog-post-section>p:nth-of-type(2) {
+    display: none;
+  }
+  .blog-posts .recent-blog-posts .blog-post-section .gradient-hide {
+    background: -webkit-linear-gradient( bottom, rgb(255,255,255) 1%, rgba(255, 255, 255, 0) 100% );
+  }
+  .blog-posts .recent-blog-posts article footer{
+    margin-top: 10px;
+  }
+  .blog-posts .recent-blog-posts .tag-item {
+    margin: 0;
+  }
+  .blog-posts .recent-blog-posts .tag-item a {
+    margin: 0;
+  }
+}
+
+/************
+Single Blog Post
+*************/
+@media (max-width: 600px) {
+  .single-blog-post .post-container {
+    padding: 10px 25px;
+  }
+}
+
+/************
+Tag Results Page
+*************/
+@media (max-width: 500px) {
+  .tag-results .recent-blog-posts {
+    padding: 0 25px;
+  }
+  .tag-results .recent-blog-posts article {
+    border: 4px solid #F57C85;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .tag-results .blog-post-section>p:nth-of-type(1) {
+    max-height: 100px;
+    overflow: hidden;
+  }
+  .tag-results .blog-post-section>p:nth-of-type(2) {
+    display: none;
+  }
+  .tag-results .recent-blog-posts .blog-post-section .gradient-hide {
+    background: -webkit-linear-gradient( bottom, rgb(255,255,255) 1%, rgba(255, 255, 255, 0) 100% );
+  }
+}
+
+/************
+404 Error Page
+*************/
+@media (max-width: 500px) {
+  .error-404 .error-page-container {
+    padding: 5px 25px;
+  }
+  .error-404 .desktop404 {
+    display: none;
+  }
+  .error-404 .mobile404 {
+    display: inline;
+  }
+}
+
+/************
+Contact Page
+*************/
+@media (max-width: 500px) {
+  .contact-page .contact-page-container {
+    padding: 5px 25px;
+  }
+}
+
+

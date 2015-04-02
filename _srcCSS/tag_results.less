@@ -1,0 +1,123 @@
+/***************************
+  Tag Results Page
+****************************/
+
+.tag-results .tag-results-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 60px;
+  min-height: 100vh;
+  /* justify-content: space-around; */
+}
+
+.tag-results .tag-results-section .blog-post-listings {
+  border: 8px solid #F57C85;
+  padding: 0 30px 30px 30px;
+  margin-bottom: 30px;
+  transition: border 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.tag-results .tag-results-section .article-hovered {
+  border: 8px solid #3c82e7;
+  transition: border 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.tag-results .tag-results-section .post-link-header:hover{
+  text-decoration: none;
+  border-bottom: 2px solid #268bd2;
+  transition: border-bottom 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.tag-results .tag-results-section .blog-post-section {
+  padding: 0;
+  margin: 0;
+}
+
+.tag-results .tag-results-section .blog-post-section .gradient-hide {
+  height: 100px;
+  overflow: hidden;
+  background: -webkit-linear-gradient( bottom, rgb(255,255,255) 15%, rgba(255, 255, 255, 0) 100% );
+  margin-top: -100px;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-results .tag-results-section .blog-post-section:nth-of-type(2) {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.tag-results .tag-results-section .blog-post-section .full-article-link {
+  border-bottom: 2px solid white;
+}
+
+.tag-results .tag-results-section .blog-post-section .full-article-link:hover {
+  text-decoration: none;
+  border-bottom: 2px solid #268bd2;
+  transition: border-bottom 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.tag-results .tag-results-section .tags {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.tag-results .tag-results-section .tag-item {
+  margin-right: 10px;
+}
+
+.tag-results .project-listing {
+  display: flex;
+  border: 8px solid #ef8b80;
+  margin: 20px 0;
+  padding: 10px 10px 0 10px;
+  transition: border 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.tag-results .project-listing:first-child {
+  margin-top: 40px;
+}
+
+.tag-results .project-listing:hover {
+  border: 8px solid #3c82e7;
+  color: #3c82e7;
+}
+
+.tag-results .project-listing .img-wrapper {
+  flex: 1;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  max-width: 240px;
+}
+
+.tag-results .project-listing .project-screenshot-img {
+  max-width: 240px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.tag-results .project-listing .project-screenshot-svg {
+  display: none;
+}
+
+.tag-results .project-title {
+  margin-top: 0.5rem;
+}
+
+.tag-results .project-details {
+  flex: 2;
+  margin-left: 20px;
+}
+
+.tag-results .project-details .project-title {
+  margin-top: 10px;
+}
+
+.tag-results .project-details .project-description {
+  margin-top: -8px;
+  color: grey;
+}

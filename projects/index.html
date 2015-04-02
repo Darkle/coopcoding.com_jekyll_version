@@ -1,0 +1,29 @@
+---
+layout: default
+cssBodyClass: projects-page
+title: Coop.Coding Projects
+---
+
+<section class="projects">
+
+  {% for project in site.categories.projects %}
+  <a href="{{ project.url }}" class="project-listing">
+      <div class="img-wrapper">
+        <img class="project-screenshot-img" src="{{ site.url }}/assets/images/projectBranding/{{ project.title }}.jpg" alt="{{ post.title }} branding image">
+      </div>
+      <svg class="project-screenshot-svg">
+          <image xlink:href="{{ site.url }}/assets/images/projectBranding/{{ project.title }}.jpg" x="0" y="-62" width="100%" height="174"/>
+      </svg>
+
+      <div class="project-details">
+
+        <h2 class="project-title">{{ project.title }}</h2>
+
+        <p class="project-description">{{ project.summary }}</p>
+
+      </div>
+
+  </a>
+  {% endfor %}
+
+</section>

@@ -1,0 +1,137 @@
+/***************************
+  Home page
+****************************/
+
+.frontpage .main-content>section {
+  display: flex;
+}
+
+/* recent projects*/
+.frontpage .recent-projects {
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px;
+}
+
+.frontpage .recent-projects>a {
+  height: 221px;
+  width: 268px;
+  text-align: center;
+  text-decoration: none;
+  border: 8px solid #F57C85;
+  padding: 6px;
+  margin: 5px;
+  transition: border 0.25s ease-in-out, color 0.25s ease-in-out;
+  color: black;
+  overflow: hidden;
+}
+
+.frontpage .recent-projects>a:hover {
+  border: 8px solid #3c82e7;
+  color: #3c82e7;
+}
+
+.frontpage .recent-projects .primary-project-image {
+  height: 164px;
+  width: 240px;
+  margin: 0;
+  border-radius: 0;
+  float: left;
+}
+
+.frontpage .recent-projects .project-info {
+  margin-top: 3px;
+  top: 0px;
+  transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  position: relative;
+  background-color: white;
+  height: 100%;
+  float: left;
+}
+
+.frontpage .recent-projects>a:hover .project-info {
+  top: -167px;
+}
+
+.frontpage .recent-projects .project-info .project-title {
+  padding: 0;
+  transition: all 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+}
+
+.frontpage .recent-projects>a:hover .project-title {
+  padding: 5px 0;
+  transition: all 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+}
+
+.frontpage .recent-projects .project-info img {
+  height: 40px;
+  width: 50px;
+  float: right;
+  margin: 8px;
+  border-radius: 5px;
+}
+
+.frontpage .recent-projects .project-info .project-description {
+  color: #4c4c4c;
+  text-align: left;
+  padding: 10px;
+  font-size: 0.8rem;
+}
+
+/* recent blog posts*/
+.frontpage .recent-blog-posts {
+  display: flex;
+  flex-direction: column;
+  padding: 0 60px;
+}
+
+.frontpage .recent-blog-posts article {
+  border: 8px solid #F57C85;
+  padding: 0 30px 30px 30px;
+  margin-bottom: 30px;
+  transition: border 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.frontpage .recent-blog-posts .article-hovered {
+  border: 8px solid #3c82e7;
+  transition: border 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.frontpage .recent-blog-posts .post-link-header:hover {
+  text-decoration: none;
+  border-bottom: 2px solid #268bd2;
+  transition: border-bottom 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.frontpage .recent-blog-posts .blog-post-section {
+  padding: 0;
+  margin: 0;
+}
+
+.frontpage .recent-blog-posts .gradient-hide {
+  height: 100px;
+  overflow: hidden;
+  background: -webkit-linear-gradient(bottom, #fff 15%, rgba(255,255,255,0) 100%);
+  margin-top: -100px;
+  position: relative;
+  z-index: 2;
+}
+
+.frontpage .recent-blog-posts .blog-post-section:nth-of-type(2) {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.frontpage .recent-blog-posts .blog-post-section .full-article-link {
+  border-bottom: 2px solid white;
+}
+
+.frontpage .recent-blog-posts .blog-post-section .full-article-link:hover {
+  text-decoration: none;
+  border-bottom: 2px solid #268bd2;
+  transition: border-bottom 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+
+
+

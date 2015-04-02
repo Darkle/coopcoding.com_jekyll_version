@@ -1,0 +1,65 @@
+<aside class="sidebar">
+
+  <a class="site-logo" href="http://coopcoding.com" title="Coop.Coding Home Page" rel="home">
+    <img src="{{ site.url }}/assets/images/siteBranding/cooper-small-avatar.jpg" alt="avatar image" class="avatar-image">
+  </a>
+
+  <div class="site-branding">
+
+    <h1 class="site-title">Coop...Coding</h1>
+
+  </div>
+
+  <nav class="main-navigation" role="navigation">
+
+    <!-- http://pixelcog.com/blog/2013/jekyll-from-scratch-core-architecture/ -->
+    {% capture location %}{{ page.url | remove_first:'/' | split:'/' | first }}{% endcapture %}
+
+    <a href="{{ site.url }}"  {% if location == "index.html" %}class="nav-active" {% endif %} title="Coop.Coding Home Page">Home</a>
+
+    <a href="{{ site.url }}/projects/" {% if location == "projects" %}class="nav-active" {% endif %} title="Coop.Coding Projects Page">Projects</a>
+
+    {% if location == "projects" and page.url != "/projects/index.html" %}
+    <a href="{{ page.url }}" class="nav-active sub-link" title="{{ page.title }} Project Page Link">
+      <div>{{ page.title }}</div>
+    </a>
+    {% endif %}
+
+    <a href="{{ site.url }}/blog/" {% if location == "blog" %}class="nav-active" {% endif %} title="Coop.Coding Blog">Blog</a>
+
+    {% if location == "blog" and page.url != "/blog/index.html" %}
+    <a href="{{ page.url }}" class="nav-active sub-link" title="{{ page.title }} blog post link">
+      <div>{{ page.title }}</div>
+    </a>
+    {% endif %}
+
+    <a href="https://www.google.com/cse/publicurl?cx=017656873701660410302:dlj9xkst79m" id="navSearchLink" title="Search">Search</a>
+    <form class="nav-search hiddenSearch" action="http://www.google.com/cse" method="get">
+      <input name="cx" type="hidden" value="017656873701660410302:dlj9xkst79m" />
+      <input name="ie" type="hidden" value="UTF-8" />
+      <label class="searchbox-label" for="searchbox">Search Box</label>
+      <input class="searchInput" id="searchbox" type="search" placeholder="Search" name="q">
+      <button type="submit" name="sa">Search</button>
+    </form>
+
+    <a href="{{ site.url }}/contact/" {% if location == "contact" %}class="nav-active" {% endif %} title="Contact">Contact</a>
+    <a title="Rss Feed Link" href="{{ site.url }}/feed.xml">RSS Feed</a>
+
+  </nav>
+
+  <!-- don't show recent posts on the homepage -->
+  {% if page.cssBodyClass != "frontpage" %}
+  <div class="sidebar-recent-posts">
+    <h3>Recent Blog Posts:</h3>
+    <ul>
+      {% for post in site.categories.blog limit: 4 %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+</aside>
+
