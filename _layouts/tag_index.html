@@ -14,10 +14,10 @@ cssBodyClass: tag-results
       {% if post.categories contains "projects" %}
       <a href="{{ post.url }}" class="project-listing">
         <div class="img-wrapper">
-          <img class="project-screenshot-img" src="{{ site.url }}/assets/images/projectBranding/{{ post.title }}.jpg" alt="{{ post.title }} branding image">
+          <img class="project-screenshot-img" src="{{ site.url }}/assets/images/projectbranding/{{ post.title | downcase | replace:' ','_' }}.jpg" alt="{{ post.title }} branding image">
         </div>
         <svg class="project-screenshot-svg">
-          <image xlink:href="{{ site.url }}/assets/images/projectBranding/{{ post.title }}.jpg" x="0" y="-62" width="100%" height="174"/>
+          <image xlink:href="{{ site.url }}/assets/images/projectbranding/{{ post.title | downcase | replace:' ','_' }}.jpg" x="0" y="-62" width="100%" height="174"/>
         </svg>
 
         <div class="project-details">

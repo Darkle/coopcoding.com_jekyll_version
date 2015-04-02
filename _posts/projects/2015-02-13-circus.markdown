@@ -1,5 +1,5 @@
 ---
-title:  "Circus"
+title:  "Circus Test"
 date:   2015-02-13 10:14:35
 tags:
 - foo1

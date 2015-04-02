@@ -5,8 +5,8 @@ email: coop.coding@gmail.com
 description: Coop...Coding
 defaultkeywords: "coding programming blog"
 baseurl: "" # the subpath of your site, e.g. /blog/
-# url: "http://coopcoding.com"
-url: "http://localhost:4000"
+url: "http://coopcoding.com"
+# url: "http://localhost:4000"
 twitter_username: CoopCoding
 github_username:  Darkle
 
@@ -16,7 +16,7 @@ highlighter: pygments
 # permalink: pretty
 permalink: /:categories/:title
 # paginate_path: "/blog/page:num/"
-destination: ../coopcoding.com_deploy
+destination: ../darkle.github.io
 exclude: [config.codekit]
 include: [".htaccess", ".nojekyll"]
 
