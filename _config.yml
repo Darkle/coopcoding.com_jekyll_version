@@ -12,7 +12,11 @@ github_username:  Darkle
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
 # permalink: pretty
 permalink: /:categories/:title
 # paginate_path: "/blog/page:num/"
