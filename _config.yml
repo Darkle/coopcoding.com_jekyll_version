@@ -1,23 +1,22 @@
 # Site settings
 title: Coop...Coding
-name: Coop.Coding
+name: Coop
 email: coop.coding@gmail.com
 description: Coop...Coding
 defaultkeywords: "coding programming blog"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://coopcoding.com"
 # url: "http://localhost:4000"
-twitter_username: CoopCoding
-github_username:  Darkle
+# url: "http://192.168.1.2:5757"
+
 
 # Build settings
 markdown: kramdown
 
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
-  line_numbers: true
-  coderay_line_numbers: table
+  syntax_highlighter: none
+  # line_numbers: false
 
 # permalink: pretty
 permalink: /:categories/:title

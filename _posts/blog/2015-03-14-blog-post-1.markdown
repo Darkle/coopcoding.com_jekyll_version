@@ -12,11 +12,62 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 Jekyll also offers powerful support for code snippets:
 
 ``` ruby
-def print_hi(name)
-  puts "Hi, #{name}"
+class A < B; def self.create(object = User)
+class Zebra; def inspect; "X#{2 + self.object_id}"
+
+module ABC::DEF
+  include Comparable
+
+  # @param test
+  # @return [String] nothing
+  def foo(test)
+    Thread.new do |blockvar|
+      ABC::DEF.reverse(:a_symbol, :'a symbol', :<=>, 'test')
+    end.join
+  end
+
+  # A really really long line than goes on and on and on, continuing outside of the  bounds of the code box
+
+  def [](index) self[index] end
+  def ==(other) other == self end
 end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+
+anIdentifier = an_identifier
+Constant = 1
+render action: :new
+```
+
+
+``` css
+pre {
+  border: solid 1px #ddd;
+  background: #fff;
+  padding: 0;
+  line-height: 23px;
+  margin-bottom: 30px;
+  white-space: pre;
+  overflow-x: auto;
+  word-break: inherit;
+  word-wrap: inherit;
+}
+
+.highlight td {
+    padding: 8px 15px;
+}
+
+.gl {
+  background: #fafafa;
+  border-right: 1px solid #ddd;
+  color: #999;
+
+  /* Stop line numbers being visually selected */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 ```
 
 ``` python
