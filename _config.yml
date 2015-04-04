@@ -5,9 +5,9 @@ email: coop.coding@gmail.com
 description: Coop...Coding
 defaultkeywords: "coding programming blog"
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://coopcoding.com"
+# url: "http://coopcoding.com"
 # url: "http://localhost:4000"
-# url: "http://192.168.1.2:5757"
+url: "http://192.168.1.2:5757"
 
 
 # Build settings
