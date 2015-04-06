@@ -237,5 +237,130 @@ Now every code block has the class of `line-numbers` added to it as well. 😀
 
 Because Github pages only supports a [few plugins](https://help.github.com/articles/using-jekyll-plugins-with-github-pages/) and I wanted to use [this](http://charliepark.org/tags-in-jekyll/) tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my [darkle.github.io repository](https://github.com/Darkle/darkle.github.io). Doing this manually is a bit of a pain, but I stumbled on to [this neat article](http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/) about using an [Alfred](http://www.alfredapp.com/) workflow to make things faster and easier. 
 
-Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. Originally I was going to use [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks, so after searching around for a while I stumbled upon https://stackedit.io. It's pretty awesome, here's a screenshot of me typing this post: 
-![enter image description here](/assets/images/blogpostimages/StackEdit-editor-ss.png)
+Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. Originally I was going to use [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks.
+
+[My Alfred workflow](https://drive.google.com/file/d/0B2rOnFGX-QzGRlNMcE1IZDhPbE0/view?usp=sharing) shortcuts look like this: 
+![Jekyll Alfred Screenshot](/assets/images/blogpostimages/Jek-Alfred-ss.png)
+
+When I select a new blog post it runs the following bash commands:
+
+``` bash
+# Adjust these variables to your installation:
+
+sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+editor="Whiskey.app"
+extension=markdown
+
+filename=$(echo $sitedir/_posts/blog/$(date +'%Y-%m-%d')-{query}.$extension | sed -e 's, ,-,g' | tr '[:upper:]' '[:lower:]')
+
+cat <<EOT >> $filename
+---
+title: {query}
+date: $(date +'%Y-%m-%d %H:%M:%S')
+tags:[]
+---
+
+EOT
+open -a "$editor" $filename
+```
+What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the `_posts/blog/` directory and that title and date as the file name (Jekyll needs a `YEAR-MONTH-DAY-title.MARKUP` format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in Whiskey.app.
+
+When I select a new project post it runs the following bash commands:
+
+``` bash
+# Adjust these variables to your installation:
+
+sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+editor="Whiskey.app"
+extension=markdown
+
+filename=$(echo $sitedir/_posts/projects/$(date +'%Y-%m-%d')-{query}.$extension | sed -e 's, ,-,g' | tr '[:upper:]' '[:lower:]')
+
+cat <<EOT >> $filename
+---
+title: {query}
+date: $(date +'%Y-%m-%d %H:%M:%S')
+tags: []
+summary: 
+---
+
+EOT
+open -a "$editor" $filename
+```
+which is pretty much the same except it creates the post in the `_posts/projects/` folder and it has a slightly different front-matter.
+
+The "Build And Push To Github" runs the following bash commands:
+
+``` bash
+# Adjust these variables to your installation:
+
+export PATH=/usr/local/bin:$PATH
+
+JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/jekyll_files/"
+
+cd $JEKYLL_BLOG_DIRECTORY
+git add .
+git commit -a -m "Post $3-$2"
+git push origin master
+
+terminal-notifier -title "Git Push for CoopCoding Jekyll Files Done" -message "" -open "https://github.com/Darkle/coopcoding.com_jekyll_version"
+
+jekyll build
+
+terminal-notifier -title "Jekyll Built Static Files" -message ""
+
+STATIC_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/darkle.github.io/"
+
+cd $STATIC_BLOG_DIRECTORY
+git add .
+git commit -a -m "Post $3-$2"
+git push origin master
+
+terminal-notifier -title "Git Push for CoopCoding Static Files Done" -message "" -open "https://github.com/Darkle/darkle.github.io"
+```
+Originally I was going to use the default notifier for OSX in the bash script but it wasn't working for me, so I used this library insted: [https://github.com/alloy/terminal-notifier](https://github.com/alloy/terminal-notifier).
+
+The "Open Blog Post" runs the following bash commands:
+
+``` bash
+# Adjust these variables to your installation:
+
+sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+extension=markdown
+
+IFS=$'\n'
+
+files=$(find $sitedir/_posts/blog -iname "*.$extension" | xargs ls -r |perl -MHTML::Entities -CS -pe'$_ = encode_entities($_, q{&<>"'\''})')
+
+echo "<?xml version='1.0'?><items>"
+for file in ${files}; do
+	echo "<item uuid='file' arg='${file}' type='file'>"
+	echo "<title>$(basename ${file})</title>"
+	echo "<subtitle>${file}</subtitle>"
+	echo "<icon type='fileicon'>${file}</icon>"
+	echo "</item>"
+done
+echo "</items>"
+fi
+```
+
+What this does is iterate through all of the files in the `_posts/blog` directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app. 
+
+Since the Whiskey Markdown app wasn't working for me properly, I had a search around and stumbled upon [https://stackedit.io](https://stackedit.io).
+
+Stack Edit is able to open, edit and save/sync with dropbox, so since my site repository is already in my dropbox folder, I can just use Stack Edit to edit markdown files.  It's pretty awesome, here's a screenshot of me typing this post: 
+<a href="/assets/images/blogpostimages/StackEdit-editor-ss.png"><img src="/assets/images/blogpostimages/StackEdit-editor-ss.png" alt="Stack Edit Screen Shot" title=""></a>
+
+So I changed the bash script for both the new blog and new project so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.
+
+```bash
+tags:[]
+---
+
+EOT
+#open -a "$editor" $filename
+open https://stackedit.io/editor
+```
+
+One of the neat things about Stack Edit is that if you open a second tab with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍
+
