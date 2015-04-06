@@ -201,9 +201,6 @@ print_hi('Tom')
 </code></pre>
 ```
 
-Which is great!
+For the actual syntax highlighting, I couldn't seem to get rouge to generate line numbers, so I used [prism.js](http://prismjs.com/). The prism.js output It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the [prism.js download page](http://prismjs.com/download.html) you can pick and choose what languages to support, which is pretty neat. 
 
-Unfortunately, I couldn't get 
-I has some trouble getting the Jekyll built in syntax highlighters to work properly with line numbering, so I ended up using [prism.js](http://prismjs.com/). It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the [prism.js download page](http://prismjs.com/download.html) you can pick and choose what languages to support, which is pretty neat. 
-
-I wanted
+Prism checks the any `<code>` elements for
