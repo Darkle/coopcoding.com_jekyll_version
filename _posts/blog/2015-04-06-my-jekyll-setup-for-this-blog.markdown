@@ -144,6 +144,7 @@ title: Coop.Coding Blog
 For generating "tag" pages, I used the code and process listed [here](http://charliepark.org/tags-in-jekyll/). You can see the tag pages output in the screenshot of Jekyll's output folder structure above.
 
 ### Blog & Project Layouts
+
 Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my `_config.yml`:
 
 ``` yaml
@@ -167,3 +168,22 @@ This tells Jekyll that for posts in that end up in the path `coopcoding.com/blog
 
  (you can also see my complete `_config.yml` here: https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)
 
+### Syntax Highlighting
+
+[Pygments](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) is the default syntax highlighter for Jekyll. It's pretty good, but I didn't really like the syntax that you have to use for code blocks:
+
+```
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+```
+Luckily, the Kramdown [markdown interpreter in Jekyll supports](http://jekyllrb.com/docs/configuration/#kramdown) Github Flavoured Markdown, specifically the [code blocks](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). With this enabled, a code block like this:
+```
+
+```
+
+I has some trouble getting the Jekyll built in syntax highlighters to work properly with line numbering, so I ended up using [prism.js](http://prismjs.com/). It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the [prism.js download page](http://prismjs.com/download.html) you can pick and choose what languages to support, which is pretty neat. 
+
+I wanted
