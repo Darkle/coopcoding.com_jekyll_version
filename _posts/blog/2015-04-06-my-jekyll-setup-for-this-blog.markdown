@@ -13,6 +13,7 @@ For the site structure, I wanted it to be `coopcoding.com/projects/projectname/`
 At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.com/projects/` folder, but unfortunately there is currently (jekyll 2.5.3) no way to iterate through all the pages in a directory.
 
 What I ended up doing was creating only blog posts and giving them either a "blog" category or a "projects" category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:
+
 ``` yaml
 ---
 title:  "My Chrome Extension Project"
@@ -52,6 +53,7 @@ and a screenshot of Jekyll's output folder structure:
 ![Jekyll Output Folder Structure](/assets/images/blogpostimages/jek-build-folder-structure.png)
 
 Here is the html for the index.html in the `/projects/` folder:
+
 ``` html
 ---
 layout: default
@@ -86,6 +88,7 @@ title: Coop.Coding Projects
 You can see I'm looping over the `site.categories.projects` and listing each post in the "projects" category. 
 
 It's pretty much the same for the html in the index.html in the `/blog/` folder:
+
 ``` html
 ---
 layout: default
@@ -140,6 +143,7 @@ For generating "tag" pages, I used the code and process listed [here](http://cha
 
 ### Blog & Project Layouts
 Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my `_config.yml`:
+
 ``` yaml
 defaults:
   -
