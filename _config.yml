@@ -11,11 +11,11 @@ url: "http://coopcoding.com"
 
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 
-kramdown:
-  input: GFM
-  syntax_highlighter: none
+# kramdown:
+#   input: GFM
+#   syntax_highlighter: none
   # line_numbers: false
 
 # permalink: pretty
