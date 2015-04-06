@@ -1211,10 +1211,10 @@ Prism.hooks.add('after-highlight', function (env) {
 		return;
 	}
 
-	var linesNum = (env.code.split('\n').length);
+	var linesNum = env.code.match(/\n(?!$)/g).length + 1;
 	var lineNumbersWrapper;
 
-	var lines = new Array(linesNum);
+	var lines = new Array(linesNum );
 	lines = lines.join('<span></span>');
 
 	lineNumbersWrapper = document.createElement('span');
