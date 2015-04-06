@@ -4,6 +4,16 @@ date: 2015-04-06 14:49:45
 tags:[asd]
 ---
 
+
+``` ruby
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+```
+
+
 Then in my _config.yml I put the following:
 ``` yaml
 permalink: /:categories/:title
