@@ -221,7 +221,7 @@ One thing that did trip me up a bit with prism.js was that in order to use the l
 But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I'm on a mac, so the kramdown folder was in `/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/`. From that folder, I went to the `parser/kramdown/codeblock.rb` file, then opened it and changed line 44 from 
 
 ``` ruby
-el.attr['class'] = "language-#{lang}" unless lang.empty?`
+el.attr['class'] = "language-#{lang}" unless lang.empty?
 ```
 
 to
