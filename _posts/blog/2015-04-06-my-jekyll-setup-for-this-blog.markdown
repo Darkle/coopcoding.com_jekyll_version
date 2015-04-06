@@ -138,6 +138,7 @@ title: Coop.Coding Blog
 ```
 For generating "tag" pages, I used the code and process listed [here](http://charliepark.org/tags-in-jekyll/). You can see the tag pages output in the screenshot of Jekyll's output folder structure above.
 
+### Blog & Project Layouts
 Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my `_config.yml`:
 ``` yaml
 defaults:
