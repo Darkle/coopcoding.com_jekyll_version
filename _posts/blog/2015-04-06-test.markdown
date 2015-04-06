@@ -1,0 +1,25 @@
+---
+title: test
+date: 2015-04-06 14:49:45
+tags:[asd]
+---
+
+Then in my _config.yml I put the following:
+``` yaml
+permalink: /:categories/:title
+defaults:
+  -
+    scope:
+      path: "blog"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "blog"
+  -
+    scope:
+      path: "projects"
+      type: "posts"
+    values:
+      layout: "project"
+      category: "projects"
+```
