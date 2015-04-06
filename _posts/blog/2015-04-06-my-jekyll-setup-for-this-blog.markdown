@@ -25,6 +25,7 @@ summary: "This is the summary for the chrome extension project"
 ---
 ``` 
 Then in my _config.yml I put the following:
+
 ``` yaml
 permalink: /:categories/:title
 defaults:
@@ -43,6 +44,7 @@ defaults:
       layout: "project"
       category: "projects"
 ```
+
 The `permalink: /:categories/:title` tells jekyll to spit out all the posts in the `_posts` folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of `coopcoding.com/projects/` & `coopcoding.com/blog/` and generate all the blog posts in those subdirectories for each category.
 
 Then I created an index.html page inside of the `/projects/` folder and inside of the `/blog/` folder. These were so that when a user visited `coopcoding.com/projects/`, they would be shown a list of the latest project pages, and when they visited `coopcoding.com/blog/`, they would be shown a list of the latest blog posts. 
