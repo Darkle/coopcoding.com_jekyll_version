@@ -239,7 +239,7 @@ Because Github pages only supports a [few plugins](https://help.github.com/artic
 
 Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. 
 
-[My Alfred workflow](https://drive.google.com/file/d/0B2rOnFGX-QzGTHpQbksyRUExd1k/view?usp=sharing) shortcuts look like this: 
+My Alfred workflow shortcuts look like this: 
 
 ![Jekyll Alfred Screenshot](/assets/images/blogpostimages/Jek-Alfred-ss.png)
 
@@ -346,6 +346,10 @@ fi
 ```
 
 What this does is iterate through all of the files in the `_posts/blog` directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app. 
+
+You can grab my Alfred workflow [here](https://drive.google.com/file/d/0B2rOnFGX-QzGTHpQbksyRUExd1k/view?usp=sharing).
+
+### Editing The Markdown
 
 Originally I was using [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks. I had a search around for a replacement Markdown editor and stumbled upon [https://stackedit.io](https://stackedit.io).
 
