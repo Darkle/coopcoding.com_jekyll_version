@@ -13,6 +13,9 @@ url: "http://coopcoding.com"
 # Build settings
 markdown: redcarpet
 
+# redcarpet:
+
+
 # kramdown:
 #   input: GFM
 #   syntax_highlighter: none
