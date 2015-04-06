@@ -15,6 +15,7 @@ print_hi('Tom')
 
 
 Then in my _config.yml I put the following:
+
 ``` yaml
 permalink: /:categories/:title
 defaults:
