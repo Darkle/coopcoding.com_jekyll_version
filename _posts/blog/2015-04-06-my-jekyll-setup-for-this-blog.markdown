@@ -203,4 +203,17 @@ print_hi('Tom')
 
 For the actual syntax highlighting, I couldn't seem to get rouge to generate line numbers, so I used [prism.js](http://prismjs.com/). The prism.js output It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the [prism.js download page](http://prismjs.com/download.html) you can pick and choose what languages to support, which is pretty neat. 
 
-Prism checks the any `<code>` elements for
+Prism checks any `<code>` elements on the page for the class `"language-foo"`, where "foo" is the name of the language that's in the code block.
+
+One thing that did trip me up a bit with prism.js was that in order to use the line number feature, you need to give the code block a class of `line-numbers`, which isn't too big of a deal as I could just add the element attribute to the end of each code block like this:
+
+	``` ruby
+	def print_hi(name)
+	  puts "Hi, #{name}"
+	end
+	print_hi('Tom')
+	#=> prints 'Hi, Tom' to STDOUT.
+	```
+	{: .line-numbers}
+
+But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I'm on a mac, so the kramdown folder was in `/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/`. From that folder, I went to the `parser/kramdown/codeblock.rb` file, then opened it and changed line 44 from `el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?` t
