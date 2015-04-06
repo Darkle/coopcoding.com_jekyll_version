@@ -226,12 +226,12 @@ to
 
 ``` ruby
 el.attr['class'] = "language-#{lang}" unless lang.empty?
-
+ 
 ```
 
 ``` ruby
 el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
-
+ 
 ```
 
 Now every code block has the class of `line-numbers` added to it as well. 😀
