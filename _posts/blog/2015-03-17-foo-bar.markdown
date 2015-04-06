@@ -1,5 +1,5 @@
 ---
-title:  "Fooest The Bar"
+title:  "Blog Test Post"
 date:   2015-03-17 5:20:35
 tags: [foo1, foo2]
 ---
