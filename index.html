@@ -13,10 +13,10 @@ cssBodyClass: frontpage
 
   {% for project in site.categories.projects limit: 6 %}
   <a href="{{ project.url }}" title="{{ project.title }} project link">
-    <img class="primary-project-image" src="{{ site.url }}/assets/images/projectbranding/{{ project.title | downcase | replace:' ','_' }}.jpg" alt="{{ post.title }} branding image">
+    <img class="primary-project-image" src="{{ site.url }}/assets/images/projectbranding/{{ project.title | downcase | replace:' ','_' }}.jpg" alt="{{ project.title }} branding image">
     <div class="project-info">
       <div class="project-title">{{ project.title }}</div>
-      <img src="{{ site.url }}/assets/images/projectbranding/{{ project.title | downcase | replace:' ','_' }}.jpg" alt="{{ post.title }} branding image">
+      <img src="{{ site.url }}/assets/images/projectbranding/{{ project.title | downcase | replace:' ','_' }}.jpg" alt="{{ project.title }} branding image">
       <div class="project-description">{{ project.summary }}</div>
     </div>
   </a>
