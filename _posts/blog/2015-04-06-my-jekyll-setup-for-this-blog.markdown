@@ -56,7 +56,7 @@ and a screenshot of Jekyll's output folder structure:
 
 Here is the html for the index.html in the `/projects/` folder:
 
-``` html
+``` markup
 ---
 layout: default
 cssBodyClass: projects-page
@@ -91,7 +91,7 @@ You can see I'm looping over the `site.categories.projects` and listing each pos
 
 It's pretty much the same for the html in the index.html in the `/blog/` folder:
 
-``` html
+``` markup
 ---
 layout: default
 cssBodyClass: blog-posts
@@ -193,7 +193,7 @@ Luckily, the Kramdown [markdown interpreter in Jekyll supports](http://jekyllrb.
 
 will be render into this HTML:
 
-``` html
+``` markup
 <pre><code class="language-ruby">
 def print_hi(name)
   puts "Hi, #{name}"
