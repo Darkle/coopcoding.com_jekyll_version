@@ -237,7 +237,7 @@ Now every code block has the class of `line-numbers` added to it as well. 😀
 
 Because Github pages only supports a [few plugins](https://help.github.com/articles/using-jekyll-plugins-with-github-pages/) and I wanted to use [this](http://charliepark.org/tags-in-jekyll/) tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my [darkle.github.io repository](https://github.com/Darkle/darkle.github.io). Doing this manually is a bit of a pain, but I stumbled on to [this neat article](http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/) about using an [Alfred](http://www.alfredapp.com/) workflow to make things faster and easier. 
 
-Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. Originally I was going to use [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks.
+Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. 
 
 [My Alfred workflow](https://drive.google.com/file/d/0B2rOnFGX-QzGTHpQbksyRUExd1k/view?usp=sharing) shortcuts look like this: 
 
@@ -347,12 +347,12 @@ fi
 
 What this does is iterate through all of the files in the `_posts/blog` directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app. 
 
-Since the Whiskey Markdown app wasn't working for me properly, I had a search around and stumbled upon [https://stackedit.io](https://stackedit.io).
+Originally I was using [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks. I had a search around for a replacement Markdown editor and stumbled upon [https://stackedit.io](https://stackedit.io).
 
 Stack Edit is able to open, edit and save/sync with dropbox, so since my site repository is already in my dropbox folder, I can just use Stack Edit to edit markdown files.  It's pretty awesome, here's a screenshot of me typing this post: 
-<a href="/assets/images/blogpostimages/StackEdit-editor-ss.png"><img src="/assets/images/blogpostimages/StackEdit-editor-ss.png" alt="Stack Edit Screen Shot" title=""></a>
+<a href="/assets/images/blogpostimages/StackEdit-editor-ss.png"><img src="/assets/images/blogpostimages/StackEdit-editor-ss.png" alt="Stack Edit Screen Shot" title=""></a>.(notice the auto code highlighting in the preview 👀)
 
-So I changed the bash script for both the new blog and new project so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.
+So I changed the bash script for both the new blog post and new project post so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.
 
 ```bash
 tags:[]
@@ -363,5 +363,7 @@ EOT
 open https://stackedit.io/editor
 ```
 
-One of the neat things about Stack Edit is that if you open a second tab with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍
+One of the neat things about Stack Edit is that if you open a second tab in your browser with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍
+
+
 
