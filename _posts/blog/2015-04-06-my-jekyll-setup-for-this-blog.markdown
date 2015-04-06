@@ -10,7 +10,7 @@ So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.
 
 For the site structure, I wanted it to be `coopcoding.com/projects/projectname/` and `coopcoding.com/blog/blog post title/`. This turned out to be a bit more difficult than I first envisioned. The `coopcoding.com/blog/blog post title/` was fairly easy to set up, but `coopcoding.com/projects/projectname/` took a bit of work.
 
-At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.com/projects/` folder, but unfortunately there is currently (jekyll 2.5.3) no way to iterate through all the pages in a directory.
+At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.com/projects/` folder, but unfortunately there is currently (<sub><sup>jekyll 2.5.3</sup></sub>) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won't really work with the default pagination.
 
 What I ended up doing was creating only blog posts and giving them either a "blog" category or a "projects" category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:
 
@@ -302,6 +302,9 @@ JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/jekyll_fil
 cd $JEKYLL_BLOG_DIRECTORY
 git add .
 git commit -a -m "Post $3-$2"
+#check if there were any new files made on github
+git pull --rebase
+#push to github
 git push origin master
 
 terminal-notifier -title "Git Push for CoopCoding Jekyll Files Done" -message "" -open "https://github.com/Darkle/coopcoding.com_jekyll_version"
@@ -354,7 +357,7 @@ You can grab my Alfred workflow [here](https://drive.google.com/file/d/0B2rOnFGX
 Originally I was using [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks. I had a search around for a replacement Markdown editor and stumbled upon [https://stackedit.io](https://stackedit.io).
 
 Stack Edit is able to open, edit and save/sync with dropbox, so since my site repository is already in my dropbox folder, I can just use Stack Edit to edit markdown files.  It's pretty awesome, here's a screenshot of me typing this post: 
-<a href="/assets/images/blogpostimages/StackEdit-editor-ss.png"><img src="/assets/images/blogpostimages/StackEdit-editor-ss.png" alt="Stack Edit Screen Shot" title=""></a>.(notice the auto code highlighting in the preview 👀)
+<a href="/assets/images/blogpostimages/StackEdit-editor-ss.png"><img src="/assets/images/blogpostimages/StackEdit-editor-ss.png" alt="Stack Edit Screen Shot" title=""></a>(notice the auto code highlighting in the preview 👀)
 
 So I changed the bash script for both the new blog post and new project post so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.
 
@@ -367,7 +370,7 @@ EOT
 open https://stackedit.io/editor
 ```
 
-One of the neat things about Stack Edit is that if you open a second tab in your browser with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍
+One of the neat things about Stack Edit is that if you open a second tab in your browser with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍 
 
 
 
