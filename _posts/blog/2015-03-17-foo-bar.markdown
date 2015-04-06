@@ -5,7 +5,7 @@ tags:
   - foo1
   - foo2
 ---
-Cum sociis natoque penatibus et magnis [dis parturient montes](http://example.com/ "dis parturient montes"), nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis <img src="http://placehold.it/800x400" alt="placeholder" title="Large example image"> consectetur purus sit amet fermentum.
+Cum sociis natoque penatibus et magnis [dis parturient montes](http://example.com/ "dis parturient montes"), nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
 
 >Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
@@ -41,8 +41,8 @@ HTML defines a long list of available inline tags, a complete list of which can 
 <h3>Code</h3>
 
 <p>Cum sociis natoque penatibus et magnis dis <code>code element</code> montes, nascetur ridiculus mus.</p>
-
-<pre><code>// Example can be run directly in your JavaScript console
+``` javascript
+// Example can be run directly in your JavaScript console
 
 // Create a function that takes two arguments and returns the sum of those arguments
 var adder = new Function("a", "b", "return a + b");
@@ -50,7 +50,7 @@ var adder = new Function("a", "b", "return a + b");
 // Call the function
 adder(2, 6);
 // > 8
-</code></pre>
+```
 
 <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
 
