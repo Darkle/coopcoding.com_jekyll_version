@@ -172,13 +172,12 @@ This tells Jekyll that for posts in that end up in the path `coopcoding.com/blog
 
 [Pygments](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) is the default syntax highlighter for Jekyll. It's pretty good, but I didn't really like the syntax that you have to use for code blocks:
 
-```
-{% highlight ruby %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
-```
+	{% highlight ruby %}
+	def foo
+	  puts 'foo'
+	end
+	{% endhighlight %}
+
 Luckily, the Kramdown [markdown interpreter in Jekyll supports](http://jekyllrb.com/docs/configuration/#kramdown) Github Flavoured Markdown, specifically the [code blocks](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). With this enabled, a code block like this:
 
 	``` ruby
