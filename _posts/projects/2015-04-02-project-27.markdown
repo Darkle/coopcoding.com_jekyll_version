@@ -1,8 +1,0 @@
----
-title: Project 27
-date: 2015-04-02 17:04:07
-tags: []
-summary: ""
----
-
-This is project 27!
