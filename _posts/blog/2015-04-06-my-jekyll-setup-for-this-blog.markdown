@@ -239,7 +239,8 @@ Because Github pages only supports a [few plugins](https://help.github.com/artic
 
 Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. Originally I was going to use [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks.
 
-[My Alfred workflow](https://drive.google.com/file/d/0B2rOnFGX-QzGRlNMcE1IZDhPbE0/view?usp=sharing) shortcuts look like this: 
+[My Alfred workflow](https://drive.google.com/file/d/0B2rOnFGX-QzGTHpQbksyRUExd1k/view?usp=sharing) shortcuts look like this: 
+
 ![Jekyll Alfred Screenshot](/assets/images/blogpostimages/Jek-Alfred-ss.png)
 
 When I select a new blog post it runs the following bash commands:
