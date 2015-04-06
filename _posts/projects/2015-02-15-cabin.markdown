@@ -6,7 +6,7 @@ summary: "This is the summary for the cabin project"
 ---
 
 
-###Description:
+### Description:
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
 
@@ -25,7 +25,7 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 ```
 
-###Version History:
+### Version History:
 
 <ul class="version-history">
   <li>0.5 Added feature y</li>
@@ -38,7 +38,7 @@ print_hi('Tom')
 <a class="link-more" href="#">Show more</a>
 
 
-###Support:
+### Support:
 
 <video controls>
   <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
