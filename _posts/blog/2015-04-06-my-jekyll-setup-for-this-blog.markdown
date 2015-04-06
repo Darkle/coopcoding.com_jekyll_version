@@ -220,14 +220,11 @@ One thing that did trip me up a bit with prism.js was that in order to use the l
 
 But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I'm on a mac, so the kramdown folder was in `/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/`. From that folder, I went to the `parser/kramdown/codeblock.rb` file, then opened it and changed line 44 from 
 
-
-
-to
-
 ``` ruby
 el.attr['class'] = "language-#{lang}" unless lang.empty?
  
 ```
+to
 
 ``` ruby
 el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
@@ -235,3 +232,10 @@ el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
 ```
 
 Now every code block has the class of `line-numbers` added to it as well. 😀
+
+### Plugins & Building Locally
+
+Because Github pages only supports a [few plugins](https://help.github.com/articles/using-jekyll-plugins-with-github-pages/) and I wanted to use [this](http://charliepark.org/tags-in-jekyll/) tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my [darkle.github.io repository](https://github.com/Darkle/darkle.github.io). Doing this manually is a bit of a pain, but I stumbled on to [this neat article](http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/) about using an [Alfred](http://www.alfredapp.com/) workflow to make things faster and easier. 
+
+Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. Originally I was going to use [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks, so after searching around for a while I stumbled upon https://stackedit.io. It's pretty awesome, here's a screenshot of me typing this post: 
+![enter image description here](/assets/images/blogpostimages/StackEdit-editor-ss.png)
