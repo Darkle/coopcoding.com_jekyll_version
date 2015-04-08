@@ -224,7 +224,7 @@ JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/jekyll_fil
 
 cd $JEKYLL_BLOG_DIRECTORY
 git add .
-git commit -a -m "ost $3-$2"
+git commit -a -m "Post $3-$2"
 #check if there were any new files made on github
 git pull --rebase
 #push to github
