@@ -10,7 +10,7 @@ So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.
 
 For the site structure, I wanted it to be `coopcoding.com/projects/projectname/` and `coopcoding.com/blog/blog post title/`. This turned out to be a bit more difficult than I first envisioned. The `coopcoding.com/blog/blog post title/` was fairly easy to set up, but `coopcoding.com/projects/projectname/` took a bit of work.
 
-At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.com/projects/` folder, but unfortunately there is currently (<sub><sup>jekyll 2.5.3</sup></sub>) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won't really work with the default pagination.
+>At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.com/projects/` folder, but unfortunately there is currently (<sub><sup>jekyll 2.5.3</sup></sub>) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won't really work with the default pagination.
 
 What I ended up doing was creating only blog posts and giving them either a "blog" category or a "projects" category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:
 
