@@ -54,93 +54,14 @@ Here are screenshots of my Jekyll folder structure to better explain it:
 and a screenshot of Jekyll's output folder structure:
 ![Jekyll Output Folder Structure](/assets/images/blogpostimages/jek-build-folder-structure.png)
 
-Here is the html for the index.html in the `/projects/` folder:
+Here is the html for the index.html in the `/projects/` folder: [https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html)
 
-``` markup
----
-layout: default
-cssBodyClass: projects-page
-title: Coop.Coding Projects
----
-
-<section class="projects">
-
-  {% for project in site.categories.projects %}
-  <a href="{{ project.url }}" class="project-listing">
-      <div class="img-wrapper">
-        <img class="project-screenshot-img" src="{{ site.url }}/assets/images/projectbranding/{{ project.title | downcase | replace:' ','_' }}.jpg" alt="{{ post.title }} branding image">
-      </div>
-      <svg class="project-screenshot-svg">
-          <image xlink:href="{{ site.url }}/assets/images/projectbranding/{{ project.title | downcase | replace:' ','_' }}.jpg" x="0" y="-62" width="100%" height="174"/>
-      </svg>
-
-      <div class="project-details">
-
-        <h2 class="project-title">{{ project.title }}</h2>
-
-        <p class="project-description">{{ project.summary }}</p>
-
-      </div>
-
-  </a>
-  {% endfor %}
-
-</section>
-```
 You can see I'm looping over the `site.categories.projects` and listing each post in the "projects" category. 
 
-It's pretty much the same for the html in the index.html in the `/blog/` folder:
+It's pretty much the same for the html in the index.html in the `/blog/` folder: [https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html)
 
-``` markup
----
-layout: default
-cssBodyClass: blog-posts
-title: Coop.Coding Blog
----
+### Tags
 
-<section class="recent-blog-posts">
-
-  <div class="section-headings">
-    <a href="{{ site.url }}/blog/">
-      <h1>Blog Posts</h1>
-    </a>
-  </div>
-
-  {% for post in site.categories.blog %}
-  <article>
-    <header>
-      <h2>
-        <a class="post-link-header" href="{{ post.url }}">{{ post.title }}</a>
-      </h2>
-      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-    </header>
-
-    <section class="blog-post-section">
-      {{ post.content | truncatewords:75 }}
-
-      <div class="gradient-hide"></div>
-
-    </section>
-
-    <section class="blog-post-section">
-      <a class="full-article-link" href="{{ post.url }}">Read Full Article</a>
-    </section>
-
-    <footer>
-      <ul class="tags">
-      {% for tag in post.tags %}
-        <li class="tag-item">
-          <a href="{{ site.url }}/tag/{{ tag }}">{{ tag }}</a>
-          <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
-        </li>
-      {% endfor %}
-      </ul>
-    </footer>
-  </article>
-  {% endfor %}
-
-</section>
-```
 For generating "tag" pages, I used the code and process listed [here](http://charliepark.org/tags-in-jekyll/). You can see the tag pages output in the screenshot of Jekyll's output folder structure above.
 
 ### Blog & Project Layouts
