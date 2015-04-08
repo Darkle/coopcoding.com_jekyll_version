@@ -85,9 +85,9 @@ defaults:
       layout: "project"
       category: "projects"
 ```
-This tells Jekyll that for posts in that end up in the path `coopcoding.com/blog/` and are of the type "posts" that they are all in the category of "blog" and should use the layout "post". The layout of "post" corresponds to the [post.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/post.html) in the `_layouts directory`. It then tells Jekyll that for posts in that end up in the path `coopcoding.com/projects/` and are of the type "posts" that they are all in the category of "projects" and should use the layout "project". The layout of "post" corresponds to the [project.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html) in the `_layouts directory`. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com_jekyll_version/tree/master/_layouts
+This tells Jekyll that for posts in that end up in the path `coopcoding.com/blog/` and are of the type "posts" that they are all in the category of "blog" and should use the layout "post". The layout of "post" corresponds to the [post.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/post.html) in the `_layouts directory`. It then tells Jekyll that for posts in that end up in the path `coopcoding.com/projects/` and are of the type "posts" that they are all in the category of "projects" and should use the layout "project". The layout of "post" corresponds to the [project.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html) in the `_layouts directory`. 
 
- (you can also see my complete `_config.yml` here: https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)
+You can also see my complete `_config.yml` here: [https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)
 
 ### Syntax Highlighting
 
