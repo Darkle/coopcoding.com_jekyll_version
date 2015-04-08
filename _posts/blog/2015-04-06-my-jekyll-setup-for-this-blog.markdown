@@ -250,7 +250,7 @@ terminal-notifier -title "Git Push for CoopCoding Static Files Done" -message ""
 
 This adds all files/new files to the git repository in my jekyll files folder. Then commits the change(s) to the repository with a message that includes the date and time. Then it checks to see if there were any changes made from somewhere else, then it pushes to github.
 
-Next, jekyll builds the static site, then adds files, commits and pushes to github.
+Next, jekyll builds the static site, then the script adds files to the static git repository, commits and pushes to github.
 
 Originally I was going to use the default notifier for OSX in the bash script to notify me when the git pushes and the jekyll build was finished but it wasn't working for me, so I used this library insted: [https://github.com/alloy/terminal-notifier](https://github.com/alloy/terminal-notifier). Note: the bash shell jekyll uses didn't seem to load my default `.bash_profile` file automatically, so I had to manually put in `export PATH=/usr/local/bin:$PATH` so that it could see the terminal-notifier library I had installed via homebrew.
 
