@@ -187,7 +187,7 @@ tags:[]
 EOT
 open -a "$editor" $filename
 ```
-What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the `_posts/blog/` directory and that title and date as the file name (Jekyll needs a `YEAR-MONTH-DAY-title.MARKUP` format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor [Macdown.app](http://macdown.uranusjr.com/).
+What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the `_posts/blog/` directory and uses that title and date as the file name (Jekyll needs a `YEAR-MONTH-DAY-title.MARKUP` format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor [Macdown.app](http://macdown.uranusjr.com/).
 
 When I select a new project post it runs the following bash commands:
 
