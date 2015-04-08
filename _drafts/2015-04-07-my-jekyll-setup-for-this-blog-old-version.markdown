@@ -1,6 +1,6 @@
 ---
-title: My Jekyll Setup For This Blog
-date: 2015-04-06 12:46:26
+title: My Jekyll Setup For This Blog Old Version
+date: 2015-04-07 12:46:26
 tags: [Jekyll, Alfred]
 ---
 
@@ -23,7 +23,7 @@ tags:
   -Browser
 summary: "This is the summary for the chrome extension project"
 ---
-``` 
+```
 Then in my _config.yml I put the following:
 
 ``` yaml
@@ -47,7 +47,7 @@ defaults:
 
 The `permalink: /:categories/:title` tells jekyll to spit out all the posts in the `_posts` folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of `coopcoding.com/projects/` & `coopcoding.com/blog/` and generate all the blog posts in those subdirectories for each category.
 
-Then I created an index.html page inside of the `/projects/` folder and inside of the `/blog/` folder. These were so that when a user visited `coopcoding.com/projects/`, they would be shown a list of the latest project pages, and when they visited `coopcoding.com/blog/`, they would be shown a list of the latest blog posts. 
+Then I created an index.html page inside of the `/projects/` folder and inside of the `/blog/` folder. These were so that when a user visited `coopcoding.com/projects/`, they would be shown a list of the latest project pages, and when they visited `coopcoding.com/blog/`, they would be shown a list of the latest blog posts.
 
 Here are screenshots of my Jekyll folder structure to better explain it:
 ![Jekyll Folder Structure](/assets/images/blogpostimages/jek-folder-ss.png)
@@ -87,7 +87,7 @@ title: Coop.Coding Projects
 
 </section>
 ```
-You can see I'm looping over the `site.categories.projects` and listing each post in the "projects" category. 
+You can see I'm looping over the `site.categories.projects` and listing each post in the "projects" category.
 
 It's pretty much the same for the html in the index.html in the `/blog/` folder:
 
@@ -203,7 +203,7 @@ print_hi('Tom')
 </code></pre>
 ```
 
-For the actual syntax highlighting, I couldn't seem to get rouge to generate line numbers, so I used [prism.js](http://prismjs.com/). The prism.js output It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the [prism.js download page](http://prismjs.com/download.html) you can pick and choose what languages to support, which is pretty neat. 
+For the actual syntax highlighting, I couldn't seem to get rouge to generate line numbers, so I used [prism.js](http://prismjs.com/). The prism.js output It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the [prism.js download page](http://prismjs.com/download.html) you can pick and choose what languages to support, which is pretty neat.
 
 Prism checks any `<code>` elements on the page for the class `"language-foo"`, where "foo" is the name of the language that's in the code block.
 
@@ -218,30 +218,28 @@ One thing that did trip me up a bit with prism.js was that in order to use the l
 	```
 	{: .line-numbers}
 
-But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I'm on a mac, so the kramdown folder was in `/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/`. From that folder, I went to the `parser/kramdown/codeblock.rb` file, then opened it and changed line 44 from 
+But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I'm on a mac, so the kramdown folder was in `/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/`. From that folder, I went to the `parser/kramdown/codeblock.rb` file, then opened it and changed line 44 from
 
 ``` ruby
 el.attr['class'] = "language-#{lang}" unless lang.empty?
- 
+
 ```
 to
 
 ``` ruby
 el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
- 
+
 ```
 
 Now every code block has the class of `line-numbers` added to it as well. 😀
 
-After implementing prism.js, I noticed that there seemed to be an extra blank line added to the code blocks. This seems to be a [known bug](https://github.com/PrismJS/prism/issues/403), so I just downloaded the development version of prism.js (aka the unminified source) and changed the code to what is listing in the change [here](https://github.com/haarg/prism/commit/2e7409189114e14b940fc80fe8d22c0072114f48) as it has not yet been merged into the official prism.js code yet.
-
 ### Plugins & Building Locally
 
-Because Github pages only supports a [few plugins](https://help.github.com/articles/using-jekyll-plugins-with-github-pages/) and I wanted to use [this](http://charliepark.org/tags-in-jekyll/) tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my [darkle.github.io repository](https://github.com/Darkle/darkle.github.io). Doing this manually is a bit of a pain, but I stumbled on to [this neat article](http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/) about using an [Alfred](http://www.alfredapp.com/) workflow to make things faster and easier. 
+Because Github pages only supports a [few plugins](https://help.github.com/articles/using-jekyll-plugins-with-github-pages/) and I wanted to use [this](http://charliepark.org/tags-in-jekyll/) tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my [darkle.github.io repository](https://github.com/Darkle/darkle.github.io). Doing this manually is a bit of a pain, but I stumbled on to [this neat article](http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/) about using an [Alfred](http://www.alfredapp.com/) workflow to make things faster and easier.
 
-Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. 
+Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred.
 
-My Alfred workflow shortcuts look like this: 
+My Alfred workflow shortcuts look like this:
 
 ![Jekyll Alfred Screenshot](/assets/images/blogpostimages/Jek-Alfred-ss.png)
 
@@ -251,7 +249,7 @@ When I select a new blog post it runs the following bash commands:
 # Adjust these variables to your installation:
 
 sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
-editor="MacDown.app"
+editor="Whiskey.app"
 extension=markdown
 
 filename=$(echo $sitedir/_posts/blog/$(date +'%Y-%m-%d')-{query}.$extension | sed -e 's, ,-,g' | tr '[:upper:]' '[:lower:]')
@@ -266,7 +264,7 @@ tags:[]
 EOT
 open -a "$editor" $filename
 ```
-What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the `_posts/blog/` directory and that title and date as the file name (Jekyll needs a `YEAR-MONTH-DAY-title.MARKUP` format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor [Macdown.app](http://macdown.uranusjr.com/).
+What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the `_posts/blog/` directory and that title and date as the file name (Jekyll needs a `YEAR-MONTH-DAY-title.MARKUP` format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in Whiskey.app.
 
 When I select a new project post it runs the following bash commands:
 
@@ -284,7 +282,7 @@ cat <<EOT >> $filename
 title: {query}
 date: $(date +'%Y-%m-%d %H:%M:%S')
 tags: []
-summary: 
+summary:
 ---
 
 EOT
@@ -324,7 +322,7 @@ git push origin master
 
 terminal-notifier -title "Git Push for CoopCoding Static Files Done" -message "" -open "https://github.com/Darkle/darkle.github.io"
 ```
-Originally I was going to use the default notifier for OSX in the bash script but it wasn't working for me, so I used this library insted: [https://github.com/alloy/terminal-notifier](https://github.com/alloy/terminal-notifier). Note: the bash shell jekyll uses didn't seem to load my default `.bash_profile` file automatically, so I had to manually put in `export PATH=/usr/local/bin:$PATH` so that it could see the terminal-notifier library I had installed via homebrew.
+Originally I was going to use the default notifier for OSX in the bash script but it wasn't working for me, so I used this library insted: [https://github.com/alloy/terminal-notifier](https://github.com/alloy/terminal-notifier).
 
 The "Open Blog Post" runs the following bash commands:
 
@@ -350,11 +348,29 @@ echo "</items>"
 fi
 ```
 
-What this does is iterate through all of the files in the `_posts/blog` directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app. 
+What this does is iterate through all of the files in the `_posts/blog` directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app.
 
-You can grab my Alfred workflow [here](https://drive.google.com/file/d/0B2rOnFGX-QzGSGpVcTBhdFN5TDg/view?usp=sharing).
+You can grab my Alfred workflow [here](https://drive.google.com/file/d/0B2rOnFGX-QzGTHpQbksyRUExd1k/view?usp=sharing).
 
+### Editing The Markdown
 
+Originally I was using [this Markdown app called Whiskey](http://www.alfredapp.com/), but it's still in beta and I had a few issues with it crashing when posting complex code blocks. I had a search around for a replacement Markdown editor and stumbled upon [https://stackedit.io](https://stackedit.io).
+
+Stack Edit is able to open, edit and save/sync with dropbox, so since my site repository is already in my dropbox folder, I can just use Stack Edit to edit markdown files.  It's pretty awesome, here's a screenshot of me typing this post:
+<a href="/assets/images/blogpostimages/StackEdit-editor-ss.png"><img src="/assets/images/blogpostimages/StackEdit-editor-ss.png" alt="Stack Edit Screen Shot" title=""></a>(notice the auto code highlighting in the preview 👀)
+
+So I changed the bash script for both the new blog post and new project post so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.
+
+```bash
+tags:[]
+---
+
+EOT
+#open -a "$editor" $filename
+open https://stackedit.io/editor
+```
+
+One of the neat things about Stack Edit is that if you open a second tab in your browser with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍
 
 
 
