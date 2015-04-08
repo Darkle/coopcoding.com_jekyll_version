@@ -245,6 +245,9 @@ git push origin master
 
 terminal-notifier -title "Git Push for CoopCoding Static Files Done" -message "" -open "https://github.com/Darkle/darkle.github.io"
 ```
+
+This adds all files/new files to the git repository in my jekyll files folder. Then commits the change(s) to the repository wiht the
+
 Originally I was going to use the default notifier for OSX in the bash script but it wasn't working for me, so I used this library insted: [https://github.com/alloy/terminal-notifier](https://github.com/alloy/terminal-notifier). Note: the bash shell jekyll uses didn't seem to load my default `.bash_profile` file automatically, so I had to manually put in `export PATH=/usr/local/bin:$PATH` so that it could see the terminal-notifier library I had installed via homebrew.
 
 The "Open Blog Post" runs the following bash commands:
