@@ -160,7 +160,7 @@ After implementing prism.js, I noticed that there seemed to be an extra blank li
 
 Because Github pages only supports a [few plugins](https://help.github.com/articles/using-jekyll-plugins-with-github-pages/) and I wanted to use [this](http://charliepark.org/tags-in-jekyll/) tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my [darkle.github.io repository](https://github.com/Darkle/darkle.github.io). Doing this manually is a bit of a pain, but I stumbled on to [this neat article](http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/) about using an [Alfred](http://www.alfredapp.com/) workflow to make things faster and easier. 
 
-Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. 
+Basically it allows you to create a new Jekyll post (including front-matter) with an shortcut in Alfred. 
 
 My Alfred workflow shortcuts look like this: 
 
