@@ -164,7 +164,7 @@ Basically it allows you to create a new Jekyll post (including front-matter) wit
 
 My Alfred workflow shortcuts look like this: 
 
-![Jekyll Alfred Screenshot](/assets/images/blogpostimages/Jek-Alfred-ss.png)
+![Jekyll Alfred Screenshot](/assets/images/blogpostimages/Jek-Alfred-ss2.png)
 
 When I select a new blog post it runs the following bash commands:
 
@@ -222,9 +222,11 @@ export PATH=/usr/local/bin:$PATH
 
 JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/jekyll_files/"
 
+DATE_TIME=$(date +'%Y-%m-%d %H:%M:%S')
+
 cd $JEKYLL_BLOG_DIRECTORY
 git add .
-git commit -a -m "Post $3-$2"
+git commit -a -m "Post $DATE_TIME"
 #check if there were any new files made on github
 git pull --rebase
 #push to github
@@ -240,15 +242,17 @@ STATIC_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/darkle.git
 
 cd $STATIC_BLOG_DIRECTORY
 git add .
-git commit -a -m "Post $3-$2"
+git commit -a -m "Post $DATE_TIME"
 git push origin master
 
 terminal-notifier -title "Git Push for CoopCoding Static Files Done" -message "" -open "https://github.com/Darkle/darkle.github.io"
 ```
 
-This adds all files/new files to the git repository in my jekyll files folder. Then commits the change(s) to the repository wiht the
+This adds all files/new files to the git repository in my jekyll files folder. Then commits the change(s) to the repository with a message that includes the date and time. Then it checks to see if there were any changes made from somewhere else, then it pushes to github.
 
-Originally I was going to use the default notifier for OSX in the bash script but it wasn't working for me, so I used this library insted: [https://github.com/alloy/terminal-notifier](https://github.com/alloy/terminal-notifier). Note: the bash shell jekyll uses didn't seem to load my default `.bash_profile` file automatically, so I had to manually put in `export PATH=/usr/local/bin:$PATH` so that it could see the terminal-notifier library I had installed via homebrew.
+Next, jekyll builds the static site, then adds files, commits and pushes to github.
+
+Originally I was going to use the default notifier for OSX in the bash script to notify me when the git pushes and the jekyll build was finished but it wasn't working for me, so I used this library insted: [https://github.com/alloy/terminal-notifier](https://github.com/alloy/terminal-notifier). Note: the bash shell jekyll uses didn't seem to load my default `.bash_profile` file automatically, so I had to manually put in `export PATH=/usr/local/bin:$PATH` so that it could see the terminal-notifier library I had installed via homebrew.
 
 The "Open Blog Post" runs the following bash commands:
 
@@ -276,7 +280,7 @@ fi
 
 What this does is iterate through all of the files in the `_posts/blog` directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app. 
 
-You can grab my Alfred workflow [here](https://drive.google.com/file/d/0B2rOnFGX-QzGSGpVcTBhdFN5TDg/view?usp=sharing).
+You can grab my Alfred workflow [here](https://drive.google.com/file/d/0B2rOnFGX-QzGZUx3aTVicmpnbU0/view?usp=sharing).
 
 
 
