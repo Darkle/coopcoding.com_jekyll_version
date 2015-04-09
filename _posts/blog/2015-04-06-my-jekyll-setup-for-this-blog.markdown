@@ -50,9 +50,9 @@ The `permalink: /:categories/:title` tells jekyll to spit out all the posts in t
 Then I created an index.html page inside of the `/projects/` folder and inside of the `/blog/` folder. These were so that when a user visited `coopcoding.com/projects/`, they would be shown a list of the latest project pages, and when they visited `coopcoding.com/blog/`, they would be shown a list of the latest blog posts. 
 
 Here are screenshots of my Jekyll folder structure to better explain it:
-![Jekyll Folder Structure](/assets/images/blogpostimages/jek-folder-ss.png)
+![Jekyll Folder Structure](http://coopcoding.com/assets/images/blogpostimages/jek-folder-ss.png)
 and a screenshot of Jekyll's output folder structure:
-![Jekyll Output Folder Structure](/assets/images/blogpostimages/jek-build-folder-structure.png)
+![Jekyll Output Folder Structure](http://coopcoding.com/assets/images/blogpostimages/jek-build-folder-structure.png)
 
 Here is the html for the index.html in the `/projects/` folder: [https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html)
 
@@ -164,7 +164,7 @@ Basically it allows you to create a new Jekyll post (including front-matter) wit
 
 My Alfred workflow shortcuts look like this: 
 
-![Jekyll Alfred Screenshot](/assets/images/blogpostimages/Jek-Alfred-ss2.png)
+![Jekyll Alfred Screenshot](http://coopcoding.com/assets/images/blogpostimages/Jek-Alfred-ss2.png)
 
 When I select a new blog post it runs the following bash commands:
 
