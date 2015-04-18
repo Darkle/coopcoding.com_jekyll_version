@@ -214,7 +214,7 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 osascript $backupFolder/HideTrashIconInDock.scpt
 ```
 
-and then make it executable by running `chmod +x`.
+and then make it executable by running `chmod +x` on the bash script file.
 
 In the `HideTrashIconInDock.scpt` script is the following Applescript
 
