@@ -258,7 +258,7 @@ launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
 
 ```
 
-More info here: [http://launchd.info/)](http://launchd.info/(click on the “Operation” tab)
+More info here: [http://launchd.info/)](http://launchd.info/) (click on the “Operation” tab
 
 Side note: For messing around with applescript in the terminal or in the applescript script editor with scripts that need to accesses accessibility features, you might want to add Terminal.app, [osascript](http://jacobsalmela.com/os-x-yosemite-osascript-enabling-access-assistive-devices/) and Script Editor.app to the Security and Privacy Accessibility
 
