@@ -20,7 +20,7 @@ One thing that could mess up this system though is accidentally emptying the tra
 
 After google-ing for a bit, I found [this post](http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock) about removing the Finder icon from the dock, and then [this post](https://discussions.apple.com/thread/6638249) specifically about removing the Trash icon. Basically you need to alter the `/System/Library/CoreServices/Dock.app/Contents/Resources/DockMenus.plist` file by inserting some XML to add a “Remove From Dock” option to the right-click menu for the Dock.
 
-In [the comments](http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock#comment34912_30429) on the first post, it’s mentioned that you could automate this from the command line by using `defaults write`, but in practice I found that this converts the `DocMenus.plist` file from a text XML file to a binary XML file. The new binary XML file didn’t seem to work for me; no menu showed up on right click even after restarting the dock by running `killall Dock` from the Terminal, so I had a quick hunt around for XML parsers/editors that work from the command line on OSX.
+In [the comments](http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock#comment34912_30429) on the first post, it’s mentioned that you could automate this from the command line by using `defaults write`, but in practice I found that this converts `DocMenus.plist` from a text XML file to a binary XML file. The new binary XML file didn’t seem to work for me; no menu showed up on right click even after restarting the dock by running `killall Dock` from the Terminal, so I had a quick hunt around for XML parsers/editors that work from the command line on OSX.
 
 [XMLStarlet](http://xmlstar.sourceforge.net/) seemed to be fairly popular so I installed it using the always helpful [Homebrew](http://brew.sh/). (after Homebrew is installed, you just need to run `brew install xmlstarlet`).
 
@@ -257,4 +257,3 @@ Side note: For messing around with applescript in the terminal or in the applesc
 
 
 sadf
-
