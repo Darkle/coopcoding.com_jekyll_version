@@ -28,7 +28,7 @@ The `DockMenus.plist` XML looks like this: https://gist.github.com/Darkle/2ca415
 
 Specifically, we are after the array after the `<key>trash</key>`:
 
-``` xml
+``` markup
     <key>trash</key>
     <array>
       <dict>
@@ -64,7 +64,7 @@ Specifically, we are after the array after the `<key>trash</key>`:
 
 What we want to do is insert the following XML into the array element immediately after the `<key>trash</key>` element:
 
-``` xml
+``` markup
 <dict>
   <key>command</key>
   <integer>1004</integer>
@@ -85,19 +85,19 @@ but for some reason, append in XMLStarlet inserts the new element you are creati
 
 To get the trash key via xpath, we can use
 
-``` javascript
+``` bash
 "/plist/dict/key[.='trash']" ...
 ```
 
 then we grab the first sibling and make sure it’s an array
 
-``` javascript
+``` bash
 "/following-sibling::*[1][self::array]"
 ```
 
 so all up its
 
-``` javascript
+``` bash
 "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
 ```
 
@@ -111,7 +111,7 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 
 This should result in the following XML inside the trash array
 
-``` xml
+``` markup
     <array>
       <dict>
         <key>command</key>
@@ -148,7 +148,7 @@ This should result in the following XML inside the trash array
 
 The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the
 
-``` xml
+``` markup
   <key>command</key>
   <integer>1004</integer>
   <key>name</key>
@@ -199,7 +199,6 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 
 ### Run the applescript that select the right-click menu to hide the Trash icon
 osascript $backupFolder/HideTrashIconInDock.scpt
-
 ```
 
 
@@ -217,7 +216,7 @@ end tell
 
 Then I created a file called `com.coop.removeTrashIconFromDock.plist` in the `/Users/coop/Library/LaunchAgents/`folder conatining the following XML
 
-``` xml
+``` markup
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
