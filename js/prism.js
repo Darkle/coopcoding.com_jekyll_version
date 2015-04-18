@@ -1214,8 +1214,9 @@ Prism.hooks.add('after-highlight', function (env) {
 	}
 
 	//for the highlighting CSS
-	if(!pre.classList.contains('line-numbers')){
-		pre.classList.add('line-numbers');
+	.className += " profilePic";
+	if(pre.className.indexOf('line-numbers') === -1){
+		pre.className += ' line-numbers';
 	}
 
 	var linesNum = multiLineCheck.length + 1;
