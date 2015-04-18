@@ -1208,7 +1208,7 @@ Prism.hooks.add('after-highlight', function (env) {
 	// works only for <code> wrapped inside <pre data-line-numbers> (not inline)
 	var pre = env.element.parentNode;
 	var multiLineCheck = env.code.match(/\n(?!$)/g);
-	//ignore if it's not a pre element or if it is only one line
+	//ignore if not a pre element or if only one line
 	if (!pre || !/pre/i.test(pre.nodeName) || !multiLineCheck) {
 		return;
 	}
