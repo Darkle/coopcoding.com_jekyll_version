@@ -264,6 +264,3 @@ Side note: For messing around with applescript in the terminal or in the applesc
 
 ![Security & Privacy Preferences](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/privacy_prefs.png)
 
-
-
-sadf
