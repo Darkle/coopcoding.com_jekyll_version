@@ -6,7 +6,7 @@ tags:[osx, dock, hazel, launchd]
 
 ### Hazel Trash Preference
 
-I’ve been thinking about getting an undelete program for OSX for a while, but I hadn’t really found one that I liked. A few weeks ago I purchased [](http://www.noodlesoft.com/hazel.php)[Hazel](http://www.noodlesoft.com/hazel.php) (for an unrelated thing), and found that it had a really neat feature where it can delete files in your Trash folder if the file os older than X number of days:
+I’ve been thinking about getting an undelete program for OSX for a while, but I hadn’t really found one that I liked. A few weeks ago I purchased [Hazel](http://www.noodlesoft.com/hazel.php) (for an unrelated thing), and found that it had a really neat feature where it can delete files in your Trash folder if the file os older than X number of days:
 
 ![Hazel System Preferences](http://coopcoding.com/assets/images/blogpostimages/HazelSystemPreferences.png)
 
@@ -163,7 +163,7 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 
 With XMLStarlet you can chain commands, so this is just the first subnode command with the new commands added at the end. You see we’re using the `-i` option to insert something and that something’s type is an attribute (“attr”) with a name of “id” and a value of ”removeFromDockDictionaryInsert”.
 
-Now it’s easier to add more elements by just querying 
+Now it’s easier to add more elements by just querying
 
 ``` bash
 "//dict[@id='removeFromDockDictionaryInsert']"
@@ -234,7 +234,7 @@ Then I created a file called `com.coop.removeTrashIconFromDock.plist` in the `/U
 
 
 
-This file will be run by [launchd](http://launchd.info/) on startup. When this runs the first time, you will probably be asked to give `bakupAndAlterPlist.sh` Accessibility access in the OSX preferences. 
+This file will be run by [launchd](http://launchd.info/) on startup. When this runs the first time, you will probably be asked to give `bakupAndAlterPlist.sh` Accessibility access in the OSX preferences.
 
 If you don’t want to wait for a restart to load the Launch Agent, you can use the following command:
 
@@ -256,7 +256,5 @@ Side note: For messing around with applescript in the terminal or in the applesc
 
 
 
-
-
-
+sadf
 
