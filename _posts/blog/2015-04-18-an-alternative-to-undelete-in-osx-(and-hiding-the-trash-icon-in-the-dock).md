@@ -12,7 +12,7 @@ I’ve been thinking about getting an undelete program for OSX for a while, but 
 
 
 
-I realised this could be used as a poor-ma alternative to undelete
+I realised this could be used as a poor-mans alternative to undelete
 
 ### Removing the trash icon from the dock
 
@@ -267,4 +267,3 @@ More info here: [http://launchd.info/)](http://launchd.info/) (click on the “O
 Side note: For messing around with applescript in the terminal or in the applescript script editor with scripts that need to accesses accessibility features, you might want to add Terminal.app, [osascript](http://jacobsalmela.com/os-x-yosemite-osascript-enabling-access-assistive-devices/) and Script Editor.app to the Security and Privacy Accessibility
 
 ![Security & Privacy Preferences](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/privacy_prefs.png)
-
