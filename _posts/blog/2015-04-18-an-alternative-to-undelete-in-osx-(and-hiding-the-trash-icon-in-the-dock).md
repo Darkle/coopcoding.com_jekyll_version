@@ -164,6 +164,7 @@ so I used the xpath option of checking for a dict element that had no child node
 
 ``` bash
 xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert"
+
 ```
 
 With XMLStarlet you can chain commands, so this is just the first subnode command with the new commands added at the end. You see we’re using the `-i` option to insert something and that something’s type is an attribute (“attr”) with a name of “id” and a value of ”removeFromDockDictionaryInsert”.
