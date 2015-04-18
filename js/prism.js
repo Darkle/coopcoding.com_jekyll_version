@@ -1211,7 +1211,7 @@ Prism.hooks.add('after-highlight', function (env) {
 		return;
 	}
 
-	var linesNum = env.code.match(/\n(?!$)/g).length + 1;
+	var linesNum = (1 + env.code.split('\n').length);
 	var lineNumbersWrapper;
 
 	var lines = new Array(linesNum + 1);
