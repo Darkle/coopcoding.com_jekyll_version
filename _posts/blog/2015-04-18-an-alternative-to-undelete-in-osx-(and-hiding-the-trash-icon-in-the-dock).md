@@ -149,10 +149,10 @@ This should result in the following XML inside the trash array
 The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the
 
 ``` markup
-  <key>command</key>
-  <integer>1004</integer>
-  <key>name</key>
-  <string>REMOVE_FROM_DOCK</string>
+<key>command</key>
+<integer>1004</integer>
+<key>name</key>
+<string>REMOVE_FROM_DOCK</string>
 ```
 
 so I used the xpath option of checking for a dict element that had no child nodes, and then giving it a unique id to make the rest of the XML editing easier

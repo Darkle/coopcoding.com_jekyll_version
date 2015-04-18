@@ -148,10 +148,10 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 <p>The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the</p>
 
 <p><code>markup
-  &lt;key&gt;command&lt;/key&gt;
-  &lt;integer&gt;1004&lt;/integer&gt;
-  &lt;key&gt;name&lt;/key&gt;
-  &lt;string&gt;REMOVE_FROM_DOCK&lt;/string&gt;
+&lt;key&gt;command&lt;/key&gt;
+&lt;integer&gt;1004&lt;/integer&gt;
+&lt;key&gt;name&lt;/key&gt;
+&lt;string&gt;REMOVE_FROM_DOCK&lt;/string&gt;
 </code></p>
 
 <p>so I used the xpath option of checking for a dict element that had no child nodes, and then giving it a unique id to make the rest of the XML editing easier</p>
