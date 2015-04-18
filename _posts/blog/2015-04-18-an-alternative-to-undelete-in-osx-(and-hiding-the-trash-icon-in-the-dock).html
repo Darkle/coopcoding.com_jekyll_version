@@ -84,31 +84,27 @@ xml ed -a "/foo/bar" -t elem -n dict
 
 <p>To get the trash key via xpath, we can use</p>
 
-<p>``` bash
-&ldquo;/plist/dict/key[.=&lsquo;trash&rsquo;]&rdquo; &hellip;</p>
-
-<p>```</p>
+<p><code>bash
+"/plist/dict/key[.='trash']" ...
+</code></p>
 
 <p>then we grab the first sibling and make sure it’s an array</p>
 
-<p>``` bash
-&ldquo;/following-sibling::*[1][self::array]&rdquo;</p>
-
-<p>```</p>
+<p><code>bash
+"/following-sibling::*[1][self::array]"
+</code></p>
 
 <p>so all up its</p>
 
-<p>``` bash
-&ldquo;/plist/dict/key[.=&lsquo;trash&rsquo;]/following-sibling::*[1][self::array]&rdquo;</p>
-
-<p>```</p>
+<p><code>bash
+"/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
+</code></p>
 
 <p>Then as the XMLStarlet command</p>
 
-<p>``` bash
-xml ed -L -s &ldquo;/plist/dict/key[.=&lsquo;trash&rsquo;]/following-sibling::*[1][self::array]&rdquo; -t elem -n dict</p>
-
-<p>```</p>
+<p><code>bash
+xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict
+</code></p>
 
 <p>(<code>-L</code> option means to <a href="http://stackoverflow.com/questions/5954168/how-to-insert-a-new-element-under-another-with-xmlstarlet/9172796#9172796">edit the file in place</a>)</p>
 
@@ -169,22 +165,20 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 
 <p>Now it’s easier to add more elements by just querying</p>
 
-<p>``` bash
-&ldquo;//dict[@id=&lsquo;removeFromDockDictionaryInsert&rsquo;]&rdquo;</p>
-
-<p>```</p>
+<p><code>bash
+"//dict[@id='removeFromDockDictionaryInsert']"
+</code></p>
 
 <p>Here is the final complete command</p>
 
-<p>``` bash
-xml ed -L -s &ldquo;/plist/dict/key[.=&lsquo;trash&rsquo;]/following-sibling::<em>[1][self::array]&rdquo; -t elem -n dict \
--i &ldquo;/plist/dict/key[.=&lsquo;trash&rsquo;]/following-sibling::</em>[1][self::array]/dict[not(*)]&rdquo; -t &ldquo;attr&rdquo; -n &ldquo;id&rdquo; -v &ldquo;removeFromDockDictionaryInsert&rdquo; \
--s &ldquo;//dict[@id=&lsquo;removeFromDockDictionaryInsert&rsquo;]&rdquo; -t elem -n key -v &ldquo;command&rdquo; \
--s &ldquo;//dict[@id=&lsquo;removeFromDockDictionaryInsert&rsquo;]&rdquo; -t elem -n integer -v 1004 \
--s &ldquo;//dict[@id=&lsquo;removeFromDockDictionaryInsert&rsquo;]&rdquo; -t elem -n key -v &ldquo;name&rdquo; \
--s &ldquo;//dict[@id=&lsquo;removeFromDockDictionaryInsert&rsquo;]&rdquo; -t elem -n string -v &ldquo;REMOVE_FROM_DOCK&rdquo; DocMenus.plist</p>
-
-<p>```</p>
+<p><code>bash
+xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict \
+-i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert" \
+-s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "command" \
+-s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 \
+-s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" \
+-s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" DocMenus.plist
+</code></p>
 
 <p>After this is run on the <code>DocMenus.plist</code> file, your right-click menu for the Trash icon in the dock should look like this:</p>
 
@@ -251,17 +245,15 @@ end tell
 
 <p>If you don’t want to wait for a restart to load the Launch Agent, you can use the following command:</p>
 
-<p>``` bash
-launchctl load ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist</p>
-
-<p>```</p>
+<p><code>bash
+launchctl load ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
+</code></p>
 
 <p>and to unload</p>
 
-<p>``` bash
-launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist</p>
-
-<p>```</p>
+<p><code>bash
+launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
+</code></p>
 
 <p>More info here: <a href="http://launchd.info/">http://launchd.info/)</a> (click on the “Operation” tab</p>
 

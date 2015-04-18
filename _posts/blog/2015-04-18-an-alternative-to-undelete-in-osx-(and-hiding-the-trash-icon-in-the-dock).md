@@ -87,28 +87,24 @@ To get the trash key via xpath, we can use
 
 ``` bash
 "/plist/dict/key[.='trash']" ...
-
 ```
 
 then we grab the first sibling and make sure it’s an array
 
 ``` bash
 "/following-sibling::*[1][self::array]"
-
 ```
 
 so all up its
 
 ``` bash
 "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
-
 ```
 
 Then as the XMLStarlet command
 
 ``` bash
 xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict
-
 ```
 
 (`-L` option means to [edit the file in place](http://stackoverflow.com/questions/5954168/how-to-insert-a-new-element-under-another-with-xmlstarlet/9172796#9172796))
@@ -172,7 +168,6 @@ Now it’s easier to add more elements by just querying
 
 ``` bash
 "//dict[@id='removeFromDockDictionaryInsert']"
-
 ```
 
 Here is the final complete command
@@ -184,7 +179,6 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 \
 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" \
 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" DocMenus.plist
-
 ```
 
 After this is run on the `DocMenus.plist` file, your right-click menu for the Trash icon in the dock should look like this:
@@ -251,14 +245,12 @@ If you don’t want to wait for a restart to load the Launch Agent, you can use 
 
 ``` bash
 launchctl load ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
-
 ```
 
 and to unload
 
 ``` bash
 launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
-
 ```
 
 More info here: [http://launchd.info/)](http://launchd.info/) (click on the “Operation” tab
