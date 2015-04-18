@@ -24,7 +24,7 @@ In [the comments](http://apple.stackexchange.com/questions/30415/how-can-i-remov
 
 [XMLStarlet](http://xmlstar.sourceforge.net/) seemed to be fairly popular so I installed it using the always helpful [Homebrew](http://brew.sh/). (after Homebrew is installed, you just need to run `brew install xmlstarlet`).
 
-The `DockMenus.plist` XML looks like this: https://gist.github.com/Darkle/2ca4152ec3cbc90b8aa9
+The `DockMenus.plist` XML looks like this: [https://gist.github.com/Darkle/2ca4152ec3cbc90b8aa9](https://gist.github.com/Darkle/2ca4152ec3cbc90b8aa9)
 
 Specifically, we are after the array after the `<key>trash</key>`:
 
@@ -180,6 +180,7 @@ Here is the final complete command
 
 ``` bash
 xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "command" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" DocMenus.plist
+
 
 ```
 
