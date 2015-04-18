@@ -77,7 +77,6 @@ After reading through the [documentation for editing XML files](http://xmlstar.s
 
 ``` bash
 xml ed -a "/foo/bar" -t elem -n dict
-
 ```
 
 (`ed` command is for editing, `-a` option is for “append”, `-t` is for the type of element you are appending, in this case an “elem” or element and `-n` for the name of the element).
