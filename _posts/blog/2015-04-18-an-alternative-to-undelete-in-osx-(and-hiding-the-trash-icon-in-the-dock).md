@@ -163,8 +163,8 @@ The lack of attributes (classes or id’s) or text in the dict elements makes it
 so I used the xpath option of checking for a dict element that had no child nodes, and then giving it a unique id to make the rest of the XML editing easier
 
 ``` bash
-xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert"
-
+xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict \
+-i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert"
 ```
 
 With XMLStarlet you can chain commands, so this is just the first subnode command with the new commands added at the end. You see we’re using the `-i` option to insert something and that something’s type is an attribute (“attr”) with a name of “id” and a value of ”removeFromDockDictionaryInsert”.
@@ -179,8 +179,12 @@ Now it’s easier to add more elements by just querying
 Here is the final complete command
 
 ``` bash
-xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "command" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" DocMenus.plist
-
+xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict \
+-i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert" \
+-s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "command" \
+-s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 \
+-s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" \
+-s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" DocMenus.plist
 
 ```
 
