@@ -166,14 +166,12 @@ But that seemed like a bit of a hassle, so I went ahead and looked in the kramdo
 
 ``` ruby
 el.attr['class'] = "language-#{lang}" unless lang.empty?
-
 ```
 
 to
 
 ``` ruby
 el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
-
 ```
 
 Now every code block has the class of `line-numbers` added to it as well. 😀

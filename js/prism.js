@@ -1207,20 +1207,18 @@ Prism.languages.yaml = {
 Prism.hooks.add('after-highlight', function (env) {
 	// works only for <code> wrapped inside <pre data-line-numbers> (not inline)
 	var pre = env.element.parentNode;
-	if (!pre || !/pre/i.test(pre.nodeName)) {
+	var multiLineCheck = env.code.match(/\n(?!$)/g);
+	//ignore if it's not a pre element or if it is only one line
+	if (!pre || !/pre/i.test(pre.nodeName) || !multiLineCheck) {
 		return;
 	}
 
-	var matchCheck = env.code.match(/\n(?!$)/g);
-	if(!matchCheck){
-		return;
-	}
 	//for the highlighting CSS
 	if(!pre.classList.contains('line-numbers')){
 		pre.classList.add('line-numbers');
 	}
 
-	var linesNum = matchCheck.length + 1;
+	var linesNum = multiLineCheck.length + 1;
 	var lineNumbersWrapper;
 
 	var lines = new Array(linesNum + 1);
