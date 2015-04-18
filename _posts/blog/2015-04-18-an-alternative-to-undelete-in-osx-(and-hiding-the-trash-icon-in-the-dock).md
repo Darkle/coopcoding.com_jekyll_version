@@ -220,6 +220,8 @@ tell application "System Events" to tell process "Dock"
 end tell
 ```
 
+What this does is it uses the accessibility features in OSX to show the right-click menu for the trash then select the "Remove from Dock” option.
+
 Then I created a file called `com.coop.removeTrashIconFromDock.plist` in the `/Users/coop/Library/LaunchAgents/`folder conatining the following XML
 
 ``` markup
