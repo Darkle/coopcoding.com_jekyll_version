@@ -1,5 +1,5 @@
 ---
-title: An alternative to undelete in osx
+title: An alternative to undelete in osx and hiding the trash icon in the dock
 date: 2015-04-18 15:43:40
 tags: [osx,dock,hazel,launchd]
 ---
