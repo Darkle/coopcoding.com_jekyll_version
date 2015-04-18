@@ -29,37 +29,37 @@ The `DockMenus.plist` XML looks like this: [https://gist.github.com/Darkle/2ca41
 Specifically, we are after the array after the `<key>trash</key>`:
 
 ``` markup
-    <key>trash</key>
-    <array>
-      <dict>
-        <key>command</key>
-        <integer>1000</integer>
-        <key>name</key>
-        <string>OPEN</string>
-      </dict>
-      <dict>
-        <key>command</key>
-        <integer>2000</integer>
-        <key>separator</key>
-        <true/>
-      </dict>
-      <dict>
-        <key>command</key>
-        <integer>1001</integer>
-        <key>dynamic</key>
-        <integer>0</integer>
-        <key>name</key>
-        <string>EMPTY_TRASH</string>
-      </dict>
-      <dict>
-        <key>command</key>
-        <integer>1040</integer>
-        <key>dynamic</key>
-        <integer>2</integer>
-        <key>name</key>
-        <string>SECURE_EMPTY_TRASH</string>
-      </dict>
-    </array>
+<key>trash</key>
+<array>
+  <dict>
+    <key>command</key>
+    <integer>1000</integer>
+    <key>name</key>
+    <string>OPEN</string>
+  </dict>
+  <dict>
+    <key>command</key>
+    <integer>2000</integer>
+    <key>separator</key>
+    <true/>
+  </dict>
+  <dict>
+    <key>command</key>
+    <integer>1001</integer>
+    <key>dynamic</key>
+    <integer>0</integer>
+    <key>name</key>
+    <string>EMPTY_TRASH</string>
+  </dict>
+  <dict>
+    <key>command</key>
+    <integer>1040</integer>
+    <key>dynamic</key>
+    <integer>2</integer>
+    <key>name</key>
+    <string>SECURE_EMPTY_TRASH</string>
+  </dict>
+</array>
 ```
 
 What we want to do is insert the following XML into the array element immediately after the `<key>trash</key>` element:
@@ -112,38 +112,38 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 This should result in the following XML inside the trash array
 
 ``` markup
-    <array>
-      <dict>
-        <key>command</key>
-        <integer>1000</integer>
-        <key>name</key>
-        <string>OPEN</string>
-      </dict>
-      <dict>
-        <key>command</key>
-        <integer>2000</integer>
-        <key>separator</key>
-        <true/>
-      </dict>
-      <dict>
-        <key>command</key>
-        <integer>1001</integer>
-        <key>dynamic</key>
-        <integer>0</integer>
-        <key>name</key>
-        <string>EMPTY_TRASH</string>
-      </dict>
-      <dict>
-        <key>command</key>
-        <integer>1040</integer>
-        <key>dynamic</key>
-        <integer>2</integer>
-        <key>name</key>
-        <string>SECURE_EMPTY_TRASH</string>
-      </dict>
-      <dict>
-      </dict>
-    </array>
+<array>
+  <dict>
+    <key>command</key>
+    <integer>1000</integer>
+    <key>name</key>
+    <string>OPEN</string>
+  </dict>
+  <dict>
+    <key>command</key>
+    <integer>2000</integer>
+    <key>separator</key>
+    <true/>
+  </dict>
+  <dict>
+    <key>command</key>
+    <integer>1001</integer>
+    <key>dynamic</key>
+    <integer>0</integer>
+    <key>name</key>
+    <string>EMPTY_TRASH</string>
+  </dict>
+  <dict>
+    <key>command</key>
+    <integer>1040</integer>
+    <key>dynamic</key>
+    <integer>2</integer>
+    <key>name</key>
+    <string>SECURE_EMPTY_TRASH</string>
+  </dict>
+  <dict>
+  </dict>
+</array>
 ```
 
 The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the
