@@ -304,5 +304,4 @@ fi
 
 What this does is iterate through all of the files in the `_posts/blog` directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in the markdown editor.
 
-You can grab my Alfred workflow [here](https://drive.google.com/uc?export=download&id=0B2rOnFGX-QzGZUx3aTVicmpnbU0).
-
+You can grab my Alfred workflow [here](https://drive.google.com/uc?export=download&id=0B2rOnFGX-QzGZUx3aTVicmpnbU0). 
