@@ -82,7 +82,7 @@ xml ed -a "/foo/bar" -t elem -n dict
 
 (`ed` command is for editing, `-a` option is for “append”, `-t` is for the type of element you are appending, in this case an “elem” or element and `-n` for the name of the element).
 
-but for some reason append in XMLStarlet inserts the new element you are creating as a sibling to the element you selected in the xpath. So you seem to need to use the `-s` subnode command to insert elements as childnodes to the element the xpath selects.
+but for some reason append in XMLStarlet inserts the new element you are creating as a sibling to the element you selected in the xpath. So you seem to need to use the `-s` subnode command to insert elements as childnodes of the element the xpath selects.
 
 To get the trash key via xpath, we can use
 
