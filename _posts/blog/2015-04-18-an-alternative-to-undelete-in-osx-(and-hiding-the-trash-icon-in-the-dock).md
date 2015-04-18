@@ -241,7 +241,7 @@ Then I created a file called `com.coop.removeTrashIconFromDock.plist` in the `/U
 
 
 
-This file will be run by [launchd](http://launchd.info/) on startup. When this runs the first time, you will probably be asked to give `bakupAndAlterPlist.sh` Accessibility access in the OSX preferences.
+This file will be run by [launchd](http://launchd.info/) on startup. When this runs the first time, you will probably be asked to give `bakupAndAlterPlist.sh` Accessibility access in the OSX preferences (see below).
 
 If you don’t want to wait for a restart to load the Launch Agent, you can use the following command:
 
