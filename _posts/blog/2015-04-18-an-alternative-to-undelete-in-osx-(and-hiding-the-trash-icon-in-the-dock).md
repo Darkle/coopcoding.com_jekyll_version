@@ -77,6 +77,7 @@ After reading through the [documentation for editing XML files](http://xmlstar.s
 
 ``` bash
 xml ed -a "/foo/bar" -t elem -n dict
+
 ```
 
 (`ed` command is for editing, `-a` option is for “append”, `-t` is for the type of element you are appending, in this case an “elem” or element and `-n` for the name of the element).
@@ -87,24 +88,28 @@ To get the trash key via xpath, we can use
 
 ``` bash
 "/plist/dict/key[.='trash']" ...
+
 ```
 
 then we grab the first sibling and make sure it’s an array
 
 ``` bash
 "/following-sibling::*[1][self::array]"
+
 ```
 
 so all up its
 
 ``` bash
 "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
+
 ```
 
 Then as the XMLStarlet command
 
 ``` bash
 xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict
+
 ```
 
 (`-L` option means to [edit the file in place](http://stackoverflow.com/questions/5954168/how-to-insert-a-new-element-under-another-with-xmlstarlet/9172796#9172796))
@@ -167,6 +172,7 @@ Now it’s easier to add more elements by just querying
 
 ``` bash
 "//dict[@id='removeFromDockDictionaryInsert']"
+
 ```
 
 Here is the final complete command
@@ -239,12 +245,14 @@ If you don’t want to wait for a restart to load the Launch Agent, you can use 
 
 ``` bash
 launchctl load ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
+
 ```
 
 and to unload
 
 ``` bash
 launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
+
 ```
 
 More info here: http://launchd.info/ (click on the “Operation” tab)
