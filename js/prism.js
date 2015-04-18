@@ -1207,7 +1207,7 @@ Prism.languages.yaml = {
 Prism.hooks.add('after-highlight', function (env) {
 	// works only for <code> wrapped inside <pre data-line-numbers> (not inline)
 	var pre = env.element.parentNode;
-	if (!pre || !/pre/i.test(pre.nodeName) || pre.className.indexOf('line-numbers') === -1) {
+	if (!pre || !/pre/i.test(pre.nodeName)) {
 		return;
 	}
 
