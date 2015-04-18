@@ -1216,7 +1216,9 @@ Prism.hooks.add('after-highlight', function (env) {
 		return;
 	}
 	//for the highlighting CSS
-	$(pre).addClass('line-numbers');
+	if(!pre.classList.contains('line-numbers')){
+		pre.classList.add("anotherclass");
+	}
 
 	var linesNum = matchCheck.length + 1;
 	var lineNumbersWrapper;
