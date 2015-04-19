@@ -25,7 +25,7 @@ summary: "This is the summary for the chrome extension project"
 ---
 ```
 
-Then in my _config.yml I put the following:
+Then, in my _config.yml for the site I put the following:
 
 ``` yaml
 permalink: /:categories/:title
@@ -162,23 +162,77 @@ One thing that did trip me up a bit with prism.js was that in order to use the l
 
 	{: .line-numbers}
 
-But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I'm on a mac, so the kramdown folder was in `/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/`. From that folder, I went to the `parser/kramdown/codeblock.rb` file, then opened it and changed line 44 from
+But that seemed like a bit of a hassle. What I really wanted was for the line numbers to show up if the code was more than one line. Unfortunately there is no automatic way to do this with prism, so I went ahead and altered the way the line numbers plugin worked.
 
-``` ruby
-el.attr['class'] = "language-#{lang}" unless lang.empty?
+Here is the original prism.js plugin code
+
+``` javascript
+Prism.hooks.add('after-highlight', function (env) {
+	// works only for <code> wrapped inside <pre data-line-numbers> (not inline)
+	var pre = env.element.parentNode;
+	if (!pre || !/pre/i.test(pre.nodeName) || pre.className.indexOf('line-numbers') === -1) {
+		return;
+	}
+
+	var linesNum = (1 + env.code.split('\n').length);
+	var lineNumbersWrapper;
+
+	var lines = new Array(linesNum);
+	lines = lines.join('<span></span>');
+
+	lineNumbersWrapper = document.createElement('span');
+	lineNumbersWrapper.className = 'line-numbers-rows';
+	lineNumbersWrapper.innerHTML = lines;
+
+	if (pre.hasAttribute('data-start')) {
+		pre.style.counterReset = 'linenumber ' + (parseInt(pre.getAttribute('data-start'), 10) - 1);
+	}
+
+	env.element.appendChild(lineNumbersWrapper);
+
+});
 ```
 
-to
+and my changes
 
-``` ruby
-el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
+``` javascript
+Prism.hooks.add('after-highlight', function (env) {
+	// works only for <code> wrapped inside <pre data-line-numbers> (not inline)
+	var pre = env.element.parentNode;
+	var multiLineCheck = env.code.match(/\n(?!$)/g);
+
+	//ignore if not a pre element or if only one line
+	if (!pre || !/pre/i.test(pre.nodeName) || !multiLineCheck) {
+		return;
+	}
+
+	//for the highlighting CSS
+	if(pre.className.indexOf('line-numbers') === -1) {
+		pre.className += ' line-numbers';
+	}
+
+	var linesNum = multiLineCheck.length + 1;
+	var lineNumbersWrapper;
+
+	var lines = new Array(linesNum + 1);
+	lines = lines.join('<span></span>');
+
+	lineNumbersWrapper = document.createElement('span');
+	lineNumbersWrapper.className = 'line-numbers-rows';
+	lineNumbersWrapper.innerHTML = lines;
+
+	if (pre.hasAttribute('data-start')) {
+		pre.style.counterReset = 'linenumber ' + (parseInt(pre.getAttribute('data-start'), 10) - 1);
+	}
+
+	env.element.appendChild(lineNumbersWrapper);
+
+});
 ```
 
-Now every code block has the class of `line-numbers` added to it as well. 😀
+You can see it now only checks to see if it is a pre element and if it has more than one line. Then if it doesn’t have a class name of “line-numbers” it adds it in order for the CSS rules for the line numbering to be applied. (note: my code uses some code from [this pull request](https://github.com/PrismJS/prism/pull/385/commits) to fix extra lines being added)
 
-After implementing prism.js, I noticed that there seemed to be an extra blank line added to the code blocks. This seems to be a [known bug](https://github.com/PrismJS/prism/issues/403), so I just downloaded the development version of prism.js (aka the unminified source) and changed the code to what is listing in the change [here](https://github.com/haarg/prism/commit/2e7409189114e14b940fc80fe8d22c0072114f48) as it has not yet been merged into the official prism.js code yet.
-
-### Plugins & Building Locally
+### Plugins, Building Locally & Alfred
 
 Because Github pages only supports a [few plugins](https://help.github.com/articles/using-jekyll-plugins-with-github-pages/) and I wanted to use [this](http://charliepark.org/tags-in-jekyll/) tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my [darkle.github.io repository](https://github.com/Darkle/darkle.github.io). Doing this manually is a bit of a pain, but I stumbled on to [this neat article](http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/) about using an [Alfred](http://www.alfredapp.com/) workflow to make things faster and easier.
 
@@ -186,16 +240,16 @@ Basically it allows you to create a new Jekyll post (including front-matter) wit
 
 My Alfred workflow shortcuts look like this:
 
-![Jekyll Alfred Screenshot](http://coopcoding.com/assets/images/blogpostimages/Jek-Alfred-ss2.png)
+![Jekyll Alfred Screenshot](http://coopcoding.com/assets/images/blogpostimages/Jek-Alfred-ss3.png)
 
 When I select a new blog post it runs the following bash commands:
 
 ``` bash
 # Adjust these variables to your installation:
 
-sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
-editor="MacDown.app"
-extension=markdown
+sitedir=/Users/username/site_jekyll_files/
+editor="Typora.app"
+extension=md
 
 filename=$(echo $sitedir/_posts/blog/$(date +'%Y-%m-%d')-{query}.$extension | sed -e 's, ,-,g' | tr '[:upper:]' '[:lower:]')
 
@@ -206,20 +260,21 @@ date: $(date +'%Y-%m-%d %H:%M:%S')
 tags:[]
 ---
 
+
 EOT
 open -a "$editor" $filename
 ```
 
-What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the `_posts/blog/` directory and uses that title and date as the file name (Jekyll needs a `YEAR-MONTH-DAY-title.MARKUP` format for post file names). Then it adds the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor [Macdown.app](http://macdown.uranusjr.com/).
+What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the `_posts/blog/` directory and uses that title and date as the file name (Jekyll needs a `YEAR-MONTH-DAY-title.MARKUP` format for post file names). Then it adds the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor [Typora.app](http://typora.io/).
 
 When I select a new project post it runs the following bash commands:
 
 ``` bash
 # Adjust these variables to your installation:
 
-sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
-editor="Whiskey.app"
-extension=markdown
+sitedir=/Users/username/site_jekyll_files/
+editor="Typora.app"
+extension=md
 
 filename=$(echo $sitedir/_posts/projects/$(date +'%Y-%m-%d')-{query}.$extension | sed -e 's, ,-,g' | tr '[:upper:]' '[:lower:]')
 
@@ -230,6 +285,7 @@ date: $(date +'%Y-%m-%d %H:%M:%S')
 tags: []
 summary:
 ---
+
 
 EOT
 open -a "$editor" $filename
@@ -304,4 +360,151 @@ fi
 
 What this does is iterate through all of the files in the `_posts/blog` directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in the markdown editor.
 
-You can grab my Alfred workflow [here](https://drive.google.com/uc?export=download&id=0B2rOnFGX-QzGZUx3aTVicmpnbU0). 
+The “Serve Jekyll Blog” opens a terminal, cd’s to the jekyll blog files then serves from that directory
+
+![Alfred Screenshot](http://coopcoding.com/assets/images/blogpostimages/AlfredPreferences.png)
+
+Then it opens the blog in the default browser by running the following bash commands
+
+``` bash
+#wait for the jekyll server to start up
+sleep 3
+open http://127.0.0.1:4000/
+```
+
+You can grab my Alfred workflow [here](https://drive.google.com/uc?export=download&id=0B2rOnFGX-QzGajEySER5TWd5OEU).
+
+### Editing The Markdown
+
+I tried a number of Markdown editors, but settled on [Typora](http://typora.io/). It has a number of neat features such as supporting [github style code fences](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks)(and highlighting them), YAML front matter recognition and showing images while editing the post. Here’s a screenshot of me editing this post in Typora:
+
+![Typora Screenshot](http://coopcoding.com/assets/images/blogpostimages/TyporaSS.png)
+
+You can see that the code block is highlighted and the image is displayed while editing. Check out all the features it has here: [http://typora.io/#feature](http://typora.io/#feature).
+
+### Automatic Images In Typora
+
+In order to get the images that I’m working with for blog posts to show up while I’m editing them, they needed to be hosted online. I thought about just using an image hoster like imgur, but I really wanted to keep control of the hosting.
+
+I could always build and push the blog every time I added a new image to the blog post I was editing, but that seemed really inefficient. What I settled on was using OSX’s folder action feature to copy the file from the image assets folder in my jekyll folder to the static output folder and then pushing that to github so that the image is now being served by github and Typora can display it in the editor.
+
+``` applescript
+--from http://foolsworkshop.com/applescript/2008/05/an-applescript-replace-text-method/
+on replaceText(find, replace, subject)
+  set prevTIDs to text item delimiters of AppleScript
+  set text item delimiters of AppleScript to find
+  set subject to text items of subject
+
+  set text item delimiters of AppleScript to replace
+  set subject to "" & subject
+  set text item delimiters of AppleScript to prevTIDs
+
+  return subject
+end replaceText
+
+on adding folder items to this_folder after receiving added_items
+  try
+    tell application "Finder"
+      --get the name of the folder
+      set the folder_name to the name of this_folder
+    end tell
+
+    set textToReplace to "file:///Users/coop/Dropbox/Coding/Projects/coopcoding.com/coopcoding.com_jekyll_version"
+    set folderToCopyTo to "Macintosh HD:Users:coop:Dropbox:Coding:Projects:coopcoding.com:darkle.github.io:assets:images:blogpostimages"
+    set convertedTextForClipboard to ""
+
+    repeat with aFile in added_items
+
+      tell application "Finder"
+        try
+          set fileProps to (get properties of aFile)
+          set fileURL to (get URL of fileProps) as string
+        on error errMsg
+          display dialog "ERROR: " & errMsg
+        end try
+
+      end tell
+
+      --the last & is for a new line in case there is more than one image
+      set convertedTextForClipboard to convertedTextForClipboard & (get replaceText(textToReplace, "http://coopcoding.com", fileURL)) & "
+"
+      set filePosixURL to get replaceText("file://", "", fileURL)
+
+      tell application "Finder"
+        copy aFile to folder folderToCopyTo
+      end tell
+
+    end repeat
+
+    set the clipboard to convertedTextForClipboard
+
+    do shell script "DATE_TIME=$(date +'%Y-%m-%d %H:%M:%S') && cd '/Users/coop/Dropbox/Coding/Projects/coopcoding.com/darkle.github.io/' && git add . && git commit -a -m 'Post $DATE_TIME' && git push origin master && export PATH=/usr/local/bin:$PATH && terminal-notifier -title 'Git Push for CoopCoding Static Images Done' -message '' -open 'https://github.com/Darkle/darkle.github.io'"
+
+  on error errMsg
+    display dialog "ERROR: " & errMsg
+  end try
+
+end adding folder items to
+```
+
+### Image Optimization
+
+In order to optimize the images before serving them, I used the great [ImageOptim](https://imageoptim.com/) app and a folder action to trigger it.
+
+``` applescript
+on adding folder items to this_folder after receiving added_items
+  --delay so dont interfere with the other folder action that copies the image
+  delay 3
+  try
+    tell application "Finder"
+      --get the name of the folder
+      set the folder_name to the name of this_folder
+    end tell
+
+    set the item_count to the number of items in the added_items
+
+    repeat with aFile in added_items
+
+      tell application "Finder"
+        try
+          set fileProps to (get properties of aFile)
+          set fName to (get name of fileProps)
+
+        on error errMsg
+          display dialog "ERROR: " & errMsg
+        end try
+
+      end tell
+
+      tell application "ImageOptim" to open aFile
+
+    end repeat
+
+    delay 2
+
+    tell application "ImageOptim" to activate
+
+  on error errMsg
+    display dialog "ERROR: " & errMsg
+  end try
+end adding folder items to
+```
+
+Now every time I add a new photo to the `/assets/images/blogpostimages` folder, it runs the applescript above and opens the image(s) in ImageOptim and optimises the image(s).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
