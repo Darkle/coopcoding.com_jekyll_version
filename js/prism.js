@@ -81,19 +81,19 @@ var _ = self.Prism = {
 		insertBefore: function (inside, before, insert, root) {
 			root = root || _.languages;
 			var grammar = root[inside];
-			
+
 			if (arguments.length == 2) {
 				insert = arguments[1];
-				
+
 				for (var newToken in insert) {
 					if (insert.hasOwnProperty(newToken)) {
 						grammar[newToken] = insert[newToken];
 					}
 				}
-				
+
 				return grammar;
 			}
-			
+
 			var ret = {};
 
 			for (var token in grammar) {
@@ -113,7 +113,7 @@ var _ = self.Prism = {
 					ret[token] = grammar[token];
 				}
 			}
-			
+
 			// Update references in other language definitions
 			_.languages.DFS(_.languages, function(key, value) {
 				if (value === root[inside] && key != inside) {
@@ -499,7 +499,7 @@ if (Prism.languages.markup) {
 			alias: 'language-css'
 		}
 	});
-	
+
 	Prism.languages.insertBefore('inside', 'attr-value', {
 		'style-attr': {
 			pattern: /\s*style=("|').*?\1/i,
@@ -1002,19 +1002,19 @@ Prism.languages.perl = {
 	'string': [
 		// q/.../
 		/\b(?:q|qq|qx|qw)\s*([^a-zA-Z0-9\s\{\(\[<])(\\?.)*?\s*\1/,
-	
+
 		// q a...a
 		/\b(?:q|qq|qx|qw)\s+([a-zA-Z0-9])(\\?.)*?\s*\1/,
-	
+
 		// q(...)
 		/\b(?:q|qq|qx|qw)\s*\(([^()]|\\.)*\s*\)/,
-	
+
 		// q{...}
 		/\b(?:q|qq|qx|qw)\s*\{([^{}]|\\.)*\s*\}/,
-	
+
 		// q[...]
 		/\b(?:q|qq|qx|qw)\s*\[([^[\]]|\\.)*\s*\]/,
-	
+
 		// q<...>
 		/\b(?:q|qq|qx|qw)\s*<([^<>]|\\.)*\s*>/,
 
@@ -1024,40 +1024,40 @@ Prism.languages.perl = {
 	'regex': [
 		// m/.../
 		/\b(?:m|qr)\s*([^a-zA-Z0-9\s\{\(\[<])(\\?.)*?\s*\1[msixpodualgc]*/,
-	
+
 		// m a...a
 		/\b(?:m|qr)\s+([a-zA-Z0-9])(\\?.)*?\s*\1[msixpodualgc]*/,
-	
+
 		// m(...)
 		/\b(?:m|qr)\s*\(([^()]|\\.)*\s*\)[msixpodualgc]*/,
-	
+
 		// m{...}
 		/\b(?:m|qr)\s*\{([^{}]|\\.)*\s*\}[msixpodualgc]*/,
-	
+
 		// m[...]
 		/\b(?:m|qr)\s*\[([^[\]]|\\.)*\s*\][msixpodualgc]*/,
-	
+
 		// m<...>
 		/\b(?:m|qr)\s*<([^<>]|\\.)*\s*>[msixpodualgc]*/,
-	
+
 		// s/.../.../
 		/\b(?:s|tr|y)\s*([^a-zA-Z0-9\s\{\(\[<])(\\?.)*?\s*\1\s*((?!\1).|\\.)*\s*\1[msixpodualgcer]*/,
-	
+
 		// s a...a...a
 		/\b(?:s|tr|y)\s+([a-zA-Z0-9])(\\?.)*?\s*\1\s*((?!\1).|\\.)*\s*\1[msixpodualgcer]*/,
-	
+
 		// s(...)(...)
 		/\b(?:s|tr|y)\s*\(([^()]|\\.)*\s*\)\s*\(\s*([^()]|\\.)*\s*\)[msixpodualgcer]*/,
-	
+
 		// s{...}{...}
 		/\b(?:s|tr|y)\s*\{([^{}]|\\.)*\s*\}\s*\{\s*([^{}]|\\.)*\s*\}[msixpodualgcer]*/,
-	
+
 		// s[...][...]
 		/\b(?:s|tr|y)\s*\[([^[\]]|\\.)*\s*\]\s*\[\s*([^[\]]|\\.)*\s*\][msixpodualgcer]*/,
-	
+
 		// s<...><...>
 		/\b(?:s|tr|y)\s*<([^<>]|\\.)*\s*>\s*<\s*([^<>]|\\.)*\s*>[msixpodualgcer]*/,
-	
+
 		// /.../
 		/\/(\[.+?]|\\.|[^\/\r\n])*\/[msixpodualgc]*(?=\s*($|[\r\n,.;})&|\-+*=~<>!?^]|(lt|gt|le|ge|eq|ne|cmp|not|and|or|xor|x)\b))/
 	],
@@ -1220,7 +1220,7 @@ Prism.languages.insertBefore('php', 'variable', {
 		}
 	}
 });;
-Prism.languages.python= { 
+Prism.languages.python= {
 	'comment': {
 		pattern: /(^|[^\\])#.*?(\r?\n|$)/,
 		lookbehind: true
@@ -1293,7 +1293,7 @@ Prism.languages.insertBefore('scss', 'function', {
 	'operator': /\s+([-+]{1,2}|={1,2}|!=|\|?\||\?|\*|\/|%)\s+/
 });
 ;
-Prism.languages.sql= { 
+Prism.languages.sql= {
 	'comment': {
 		pattern: /(^|[^\\])(\/\*[\w\W]*?\*\/|((--)|(\/\/)|#).*?(\r?\n|$))/,
 		lookbehind: true
@@ -1363,18 +1363,25 @@ Prism.languages.yaml = {
 	'important': /[&*][\w]+/,
 	'punctuation': /([:[\]{}\-,|>?]|---|\.\.\.)/
 };
-;
 Prism.hooks.add('after-highlight', function (env) {
 	// works only for <code> wrapped inside <pre data-line-numbers> (not inline)
 	var pre = env.element.parentNode;
-	if (!pre || !/pre/i.test(pre.nodeName) || pre.className.indexOf('line-numbers') === -1) {
+	var multiLineCheck = env.code.match(/\n(?!$)/g);
+
+	//ignore if not a pre element or if only one line
+	if (!pre || !/pre/i.test(pre.nodeName) || !multiLineCheck) {
 		return;
 	}
 
-	var linesNum = (1 + env.code.split('\n').length);
+	//for the highlighting CSS
+	if(pre.className.indexOf('line-numbers') === -1) {
+		pre.className += ' line-numbers';
+	}
+
+	var linesNum = multiLineCheck.length + 1;
 	var lineNumbersWrapper;
 
-	var lines = new Array(linesNum);
+	var lines = new Array(linesNum + 1);
 	lines = lines.join('<span></span>');
 
 	lineNumbersWrapper = document.createElement('span');
@@ -1387,4 +1394,4 @@ Prism.hooks.add('after-highlight', function (env) {
 
 	env.element.appendChild(lineNumbersWrapper);
 
-});;
+});
