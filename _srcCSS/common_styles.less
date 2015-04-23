@@ -57,7 +57,7 @@ a strong {
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
 
 /* Headings */
@@ -237,10 +237,14 @@ mobile header
   display: none;
 }
 
+.mobile-header a:hover {
+  text-decoration: none;
+}
+/*
 .mobile-header a:not(#mobileMenButton):hover {
   text-decoration: none;
 }
-
+*/
 .mobile-header h1 {
   margin: 0;
   color: white;
