@@ -15,7 +15,7 @@ $(function() {
     if(form.hasClass('hiddenSearch')){
       form.removeClass('hiddenSearch');
       input.focus();
-     }
+    }
     else{
       form.addClass('hiddenSearch');
     }

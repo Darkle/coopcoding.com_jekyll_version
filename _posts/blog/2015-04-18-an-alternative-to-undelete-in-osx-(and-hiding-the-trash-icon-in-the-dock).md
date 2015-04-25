@@ -200,10 +200,15 @@ origPlist=/System/Library/CoreServices/Dock.app/Contents/Resources/DockMenus;
 backupFolder=/Users/coop/Dropbox/OSXStuff/DockTrashScripts
 cp $origPlist.plist $backupFolder/DockMenus-BAK.plist;
 
-### Edit the DockMenus.plist file with XMLStarlet
-xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "command" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" $origPlist.plist
+### Double check it's not already there
+elemCheck=$(xml sel -t -v "count(//dict[@id='removeFromDockDictionaryInsert'])" $origPlist.plist)
 
-### Run the applescript that select the right-click menu to hide the Trash icon
+if [ $elemCheck -eq 0 ]
+then
+    xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "command" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" $origPlist.plist
+fi
+
+### Run the applescript that selects the right-click menu to hide the Trash icon
 osascript $backupFolder/HideTrashIconInDock.scpt
 ```
 
@@ -232,7 +237,9 @@ Then I created a file called `com.coop.removeTrashIconFromDock.plist` in the `/U
 		<key>Label</key>
 		<string>com.coop.removeTrashIconFromDock</string>
 		<key>Program</key>
-		<string>/Users/coop/Dropbox/OSXStuff/DockTrashScripts/bakupAndAlterPlist.sh</string>
+		<key>LaunchOnlyOnce</key>
+		<true/>
+        <string>/Users/coop/Dropbox/OSXStuff/DockTrashScripts/bakupAndAlterPlist.sh</string>
 		<key>RunAtLoad</key>
 		<true/>
 	</dict>
