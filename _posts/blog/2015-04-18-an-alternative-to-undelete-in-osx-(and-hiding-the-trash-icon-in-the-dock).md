@@ -276,7 +276,7 @@ There are of course times when you will need to grab something that you accident
 
 The Alfred workflow just runs the following Applescript:
 
-``` Applescript
+``` applescript
 tell application "Finder"
     open trash    
 end tell
