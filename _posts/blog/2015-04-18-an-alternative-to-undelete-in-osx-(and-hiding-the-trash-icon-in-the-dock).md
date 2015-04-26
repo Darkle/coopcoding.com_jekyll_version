@@ -267,3 +267,19 @@ More info here: [http://launchd.info/)](http://launchd.info/) (click on the “O
 Side note: For messing around with applescript in the terminal or in the applescript script editor with scripts that need to accesses accessibility features, you might want to add Terminal.app, [osascript](http://jacobsalmela.com/os-x-yosemite-osascript-enabling-access-assistive-devices/) and Script Editor.app to the Security and Privacy Accessibility
 
 ![Security & Privacy Preferences](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/privacy_prefs.png)
+
+
+
+### Where’s my Trash!
+
+There are of course times when you will need to grab something that you accidentally moved to the trash. You could go to the hidden `~/.Trash` folder, but that would only show you the trashed items from your Macintosh HD and not everything from external hard drives. To solve this I created a simple Alfred workflow which you can grab [here](https://drive.google.com/uc?export=download&id=https://drive.google.com/file/d/0B2rOnFGX-QzGNGRqUGppSE9pVjg/view?usp=sharing).
+
+The Alfred workflow just runs the following Applescript:
+
+``` Applescript
+tell application "Finder"
+    open trash    
+end tell
+```
+
+ 
