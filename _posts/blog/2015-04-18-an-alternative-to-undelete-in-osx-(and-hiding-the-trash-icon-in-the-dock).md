@@ -280,6 +280,7 @@ The Alfred workflow just runs the following Applescript:
 tell application "Finder"
     open trash    
 end tell
+activate application "Finder"
 ```
 
  
