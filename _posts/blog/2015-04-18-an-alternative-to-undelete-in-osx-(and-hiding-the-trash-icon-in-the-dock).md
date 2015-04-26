@@ -272,7 +272,7 @@ Side note: For messing around with applescript in the terminal or in the applesc
 
 ### Where’s my Trash!
 
-There are of course times when you will need to grab something that you accidentally moved to the trash. You could go to the hidden `~/.Trash` folder, but that would only show you the trashed items from your Macintosh HD and not everything from external hard drives. To solve this I created a simple Alfred workflow which you can grab [here](https://drive.google.com/uc?export=download&id=https://drive.google.com/file/d/0B2rOnFGX-QzGNGRqUGppSE9pVjg/view?usp=sharing).
+There are of course times when you will need to grab something that you accidentally moved to the trash. You could go to the hidden `~/.Trash` folder, but that would only show you the trashed items from your Macintosh HD and not everything from external hard drives. To solve this I created a simple Alfred workflow which you can grab [here](https://drive.google.com/uc?export=download&id=0B2rOnFGX-QzGNGRqUGppSE9pVjg).
 
 The Alfred workflow just runs the following Applescript:
 
