@@ -103,7 +103,6 @@ $(function() {
     $('.post-body, .project-body').fitVids();
   }
 
-
 });
 
 /********************
