@@ -17,3 +17,7 @@ I set up [Better Touch Tool](http://www.boastr.net) to do the following:
 
 Here is a screenshot of it in Better Touch Tool:
 
+![Better Touch Tool Screenshot](http://coopcoding.com/assets/images/blogpostimages/BetterTouchTool.png)
+
+
+
