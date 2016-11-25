@@ -8,9 +8,9 @@ So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.
 
 ### Blog Structure
 
-For the site structure, I wanted it to be `coopcoding.com/projects/projectname/` and `coopcoding.com/blog/blog post title/`. This turned out to be a bit more difficult than I first envisioned. The `coopcoding.com/blog/blog post title/` was fairly easy to set up, but `coopcoding.com/projects/projectname/` took a bit of work.
+For the site structure, I wanted it to be `coopcoding.space/projects/projectname/` and `coopcoding.space/blog/blog post title/`. This turned out to be a bit more difficult than I first envisioned. The `coopcoding.space/blog/blog post title/` was fairly easy to set up, but `coopcoding.space/projects/projectname/` took a bit of work.
 
-At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.com/projects/` folder, but unfortunately there is currently (<sub><sup>jekyll 2.5.3</sup></sub>) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won't really work with the default pagination.
+At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.space/projects/` folder, but unfortunately there is currently (<sub><sup>jekyll 2.5.3</sup></sub>) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won't really work with the default pagination.
 
 What I ended up doing was creating only blog posts and giving them either a "blog" category or a "projects" category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:
 
@@ -45,9 +45,9 @@ defaults:
       category: "projects"
 ```
 
-The `permalink: /:categories/:title` tells jekyll to spit out all the posts in the `_posts` folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of `coopcoding.com/projects/` & `coopcoding.com/blog/` and generate all the blog posts in those subdirectories for each category.
+The `permalink: /:categories/:title` tells jekyll to spit out all the posts in the `_posts` folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of `coopcoding.space/projects/` & `coopcoding.space/blog/` and generate all the blog posts in those subdirectories for each category.
 
-Then I created an index.html page inside of the `/projects/` folder and inside of the `/blog/` folder. These were so that when a user visited `coopcoding.com/projects/`, they would be shown a list of the latest project pages, and when they visited `coopcoding.com/blog/`, they would be shown a list of the latest blog posts.
+Then I created an index.html page inside of the `/projects/` folder and inside of the `/blog/` folder. These were so that when a user visited `coopcoding.space/projects/`, they would be shown a list of the latest project pages, and when they visited `coopcoding.space/blog/`, they would be shown a list of the latest blog posts.
 
 Here are screenshots of my Jekyll folder structure to better explain it:
 ![Jekyll Folder Structure](/assets/images/blogpostimages/jek-folder-ss.png)
@@ -164,9 +164,9 @@ defaults:
       layout: "project"
       category: "projects"
 ```
-This tells Jekyll that for posts in that end up in the path `coopcoding.com/blog/` and are of the type "posts" that they are all in the category of "blog" and should use the layout "post". The layout of "post" corresponds to the `post.html` in the `_layouts directory`. It then tells Jekyll that for posts in that end up in the path `coopcoding.com/projects/` and are of the type "posts" that they are all in the category of "projects" and should use the layout "project". The layout of "post" corresponds to the `project.html` in the `_layouts directory`. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com_jekyll_version/tree/master/_layouts
+This tells Jekyll that for posts in that end up in the path `coopcoding.space/blog/` and are of the type "posts" that they are all in the category of "blog" and should use the layout "post". The layout of "post" corresponds to the `post.html` in the `_layouts directory`. It then tells Jekyll that for posts in that end up in the path `coopcoding.space/projects/` and are of the type "posts" that they are all in the category of "projects" and should use the layout "project". The layout of "post" corresponds to the `project.html` in the `_layouts directory`. You can check out the html for those files here: https://github.com/Darkle/coopcoding.space_jekyll_version/tree/master/_layouts
 
- (you can also see my complete `_config.yml` here: https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)
+ (you can also see my complete `_config.yml` here: https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_config.yml)
 
 ### Syntax Highlighting
 
@@ -248,7 +248,7 @@ When I select a new blog post it runs the following bash commands:
 ``` bash
 # Adjust these variables to your installation:
 
-sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+sitedir=/Users/username/Coding/Projects/coopcoding.space/jekyll_files/
 editor="Whiskey.app"
 extension=markdown
 
@@ -271,7 +271,7 @@ When I select a new project post it runs the following bash commands:
 ``` bash
 # Adjust these variables to your installation:
 
-sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+sitedir=/Users/username/Coding/Projects/coopcoding.space/jekyll_files/
 editor="Whiskey.app"
 extension=markdown
 
@@ -297,7 +297,7 @@ The "Build And Push To Github" runs the following bash commands:
 
 export PATH=/usr/local/bin:$PATH
 
-JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/jekyll_files/"
+JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.space/jekyll_files/"
 
 cd $JEKYLL_BLOG_DIRECTORY
 git add .
@@ -307,13 +307,13 @@ git pull --rebase
 #push to github
 git push origin master
 
-terminal-notifier -title "Git Push for CoopCoding Jekyll Files Done" -message "" -open "https://github.com/Darkle/coopcoding.com_jekyll_version"
+terminal-notifier -title "Git Push for CoopCoding Jekyll Files Done" -message "" -open "https://github.com/Darkle/coopcoding.space_jekyll_version"
 
 jekyll build
 
 terminal-notifier -title "Jekyll Built Static Files" -message ""
 
-STATIC_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/darkle.github.io/"
+STATIC_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.space/darkle.github.io/"
 
 cd $STATIC_BLOG_DIRECTORY
 git add .
@@ -329,7 +329,7 @@ The "Open Blog Post" runs the following bash commands:
 ``` bash
 # Adjust these variables to your installation:
 
-sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+sitedir=/Users/username/Coding/Projects/coopcoding.space/jekyll_files/
 extension=markdown
 
 IFS=$'\n'

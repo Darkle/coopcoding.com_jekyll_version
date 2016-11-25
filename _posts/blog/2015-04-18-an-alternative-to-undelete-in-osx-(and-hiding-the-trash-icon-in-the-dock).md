@@ -8,7 +8,7 @@ title: An alternative to undelete in osx (and hiding the trash icon in the dock)
 
 I’ve been thinking about getting an undelete program for OSX for a while, but I hadn’t really found one that I liked. A few weeks ago I purchased [Hazel](http://www.noodlesoft.com/hazel.php) (for an unrelated thing), and found that it had a really neat feature where it can delete files in your Trash folder if the file os older than X number of days:
 
-![Hazel System Preferences](http://coopcoding.com/assets/images/blogpostimages/HazelSystemPreferences.png)
+![Hazel System Preferences](http://coopcoding.space/assets/images/blogpostimages/HazelSystemPreferences.png)
 
 
 
@@ -183,7 +183,7 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 
 After this is run on the `DocMenus.plist` file, your right-click menu for the Trash icon in the dock should look like this:
 
-![Remove From Dock Menu](http://coopcoding.com/assets/images/blogpostimages/RemoveFromDockMenu.jpg)
+![Remove From Dock Menu](http://coopcoding.space/assets/images/blogpostimages/RemoveFromDockMenu.jpg)
 
 ### Removing on startup via launchd
 
@@ -278,7 +278,7 @@ The Alfred workflow just runs the following Applescript:
 
 ``` applescript
 tell application "Finder"
-    open trash    
+    open trash
 end tell
 activate application "Finder"
 ```

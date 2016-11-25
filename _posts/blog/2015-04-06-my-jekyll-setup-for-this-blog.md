@@ -8,9 +8,9 @@ So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.
 
 ### Blog Structure
 
-For the site structure, I wanted it to be `coopcoding.com/projects/projectname/` and `coopcoding.com/blog/blog post title/`. This turned out to be a bit more difficult than I first envisioned. The `coopcoding.com/blog/blog post title/` was fairly easy to set up, but `coopcoding.com/projects/projectname/` took a bit of work.
+For the site structure, I wanted it to be `coopcoding.space/projects/projectname/` and `coopcoding.space/blog/blog post title/`. This turned out to be a bit more difficult than I first envisioned. The `coopcoding.space/blog/blog post title/` was fairly easy to set up, but `coopcoding.space/projects/projectname/` took a bit of work.
 
-At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.com/projects/` folder, but unfortunately there is currently (<small><small>jekyll 2.5.3</small></small>) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won't really work with the default pagination.
+At first I thought I would use the [default](http://jekyllrb.com/docs/pages/) way of creating pages and just stick them in the `coopcoding.space/projects/` folder, but unfortunately there is currently (<small><small>jekyll 2.5.3</small></small>) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won't really work with the default pagination.
 
 What I ended up doing was creating only blog posts and giving them either a "blog" category or a "projects" category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:
 
@@ -46,23 +46,23 @@ defaults:
       category: "projects"
 ```
 
-The `permalink: /:categories/:title` tells jekyll to spit out all the posts in the `_posts` folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of `coopcoding.com/projects/` & `coopcoding.com/blog/` and generate all the blog posts in those subdirectories for each category.
+The `permalink: /:categories/:title` tells jekyll to spit out all the posts in the `_posts` folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of `coopcoding.space/projects/` & `coopcoding.space/blog/` and generate all the blog posts in those subdirectories for each category.
 
-Then I created an index.html page inside of the `/projects/` folder and inside of the `/blog/` folder. These were so that when a user visited `coopcoding.com/projects/`, they would be shown a list of the latest project pages, and when they visited `coopcoding.com/blog/`, they would be shown a list of the latest blog posts.
+Then I created an index.html page inside of the `/projects/` folder and inside of the `/blog/` folder. These were so that when a user visited `coopcoding.space/projects/`, they would be shown a list of the latest project pages, and when they visited `coopcoding.space/blog/`, they would be shown a list of the latest blog posts.
 
 Here are screenshots of my Jekyll folder structure to better explain it:
 
-![Jekyll Folder Structure](http://coopcoding.com/assets/images/blogpostimages/jek-folder-ss.png)
+![Jekyll Folder Structure](http://coopcoding.space/assets/images/blogpostimages/jek-folder-ss.png)
 
 and a screenshot of Jekyll's output folder structure:
 
-![Jekyll Output Folder Structure](http://coopcoding.com/assets/images/blogpostimages/jek-build-folder-structure.png)
+![Jekyll Output Folder Structure](http://coopcoding.space/assets/images/blogpostimages/jek-build-folder-structure.png)
 
-Here is the html for the index.html in the `/projects/` folder: [https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html)
+Here is the html for the index.html in the `/projects/` folder: [https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_layouts/project.html](https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_layouts/project.html)
 
 You can see I'm looping over the `site.categories.projects` and listing each post in the "projects" category.
 
-It's pretty much the same for the html in the index.html in the `/blog/` folder: [https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html)
+It's pretty much the same for the html in the index.html in the `/blog/` folder: [https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_layouts/project.html](https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_layouts/project.html)
 
 ### Tags
 
@@ -90,9 +90,9 @@ defaults:
       category: "projects"
 ```
 
-This tells Jekyll that for posts in that end up in the path `coopcoding.com/blog/` and are of the type "posts" that they are all in the category of "blog" and should use the layout "post". The layout of "post" corresponds to the [post.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/post.html) in the `_layouts directory`. It then tells Jekyll that for posts in that end up in the path `coopcoding.com/projects/` and are of the type "posts" that they are all in the category of "projects" and should use the layout "project". The layout of "post" corresponds to the [project.html](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html) in the `_layouts directory`.
+This tells Jekyll that for posts in that end up in the path `coopcoding.space/blog/` and are of the type "posts" that they are all in the category of "blog" and should use the layout "post". The layout of "post" corresponds to the [post.html](https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_layouts/post.html) in the `_layouts directory`. It then tells Jekyll that for posts in that end up in the path `coopcoding.space/projects/` and are of the type "posts" that they are all in the category of "projects" and should use the layout "project". The layout of "post" corresponds to the [project.html](https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_layouts/project.html) in the `_layouts directory`.
 
-You can also see my complete `_config.yml` here: [https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml](https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)
+You can also see my complete `_config.yml` here: [https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_config.yml](https://github.com/Darkle/coopcoding.space_jekyll_version/blob/master/_config.yml)
 
 ### Syntax Highlighting
 
@@ -240,7 +240,7 @@ Basically it allows you to create a new Jekyll post (including front-matter) wit
 
 My Alfred workflow shortcuts look like this:
 
-![Jekyll Alfred Screenshot](http://coopcoding.com/assets/images/blogpostimages/Jek-Alfred-ss3.png)
+![Jekyll Alfred Screenshot](http://coopcoding.space/assets/images/blogpostimages/Jek-Alfred-ss3.png)
 
 When I select a new blog post it runs the following bash commands:
 
@@ -300,7 +300,7 @@ The "Build And Push To Github" runs the following bash commands:
 
 export PATH=/usr/local/bin:$PATH
 
-JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/jekyll_files/"
+JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.space/jekyll_files/"
 
 DATE_TIME=$(date +'%Y-%m-%d %H:%M:%S')
 
@@ -312,13 +312,13 @@ git pull --rebase
 #push to github
 git push origin master
 
-terminal-notifier -title "Git Push for CoopCoding Jekyll Files Done" -message "" -open "https://github.com/Darkle/coopcoding.com_jekyll_version"
+terminal-notifier -title "Git Push for CoopCoding Jekyll Files Done" -message "" -open "https://github.com/Darkle/coopcoding.space_jekyll_version"
 
 jekyll build
 
 terminal-notifier -title "Jekyll Built Static Files" -message ""
 
-STATIC_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/darkle.github.io/"
+STATIC_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.space/darkle.github.io/"
 
 cd $STATIC_BLOG_DIRECTORY
 git add .
@@ -339,7 +339,7 @@ The "Open Blog Post" runs the following bash commands:
 ``` bash
 # Adjust these variables to your installation:
 
-sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+sitedir=/Users/username/Coding/Projects/coopcoding.space/jekyll_files/
 extension=markdown
 
 IFS=$'\n'
@@ -362,7 +362,7 @@ What this does is iterate through all of the files in the `_posts/blog` director
 
 The “Serve Jekyll Blog” opens a terminal, cd’s to the jekyll blog files then serves from that directory
 
-![Alfred Screenshot](http://coopcoding.com/assets/images/blogpostimages/AlfredPreferences.png)
+![Alfred Screenshot](http://coopcoding.space/assets/images/blogpostimages/AlfredPreferences.png)
 
 Then it opens the blog in the default browser by running the following bash commands
 
@@ -378,7 +378,7 @@ You can grab my Alfred workflow [here](https://drive.google.com/uc?export=downlo
 
 I tried a number of Markdown editors, but settled on [Typora](http://typora.io/). It has a number of neat features such as supporting [github style code fences](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks)(and highlighting them), YAML front matter recognition and showing images while editing the post. Here’s a screenshot of me editing this post in Typora:
 
-![Typora Screenshot](http://coopcoding.com/assets/images/blogpostimages/TyporaSS.png)
+![Typora Screenshot](http://coopcoding.space/assets/images/blogpostimages/TyporaSS.png)
 
 You can see that the code block is highlighted and the image is displayed while editing. Check out all the features it has here: [http://typora.io/#feature](http://typora.io/#feature).
 
@@ -409,8 +409,8 @@ on adding folder items to this_folder after receiving added_items
       set the folder_name to the name of this_folder
     end tell
 
-    set textToReplace to "file:///Users/coop/Dropbox/Coding/Projects/coopcoding.com/coopcoding.com_jekyll_version"
-    set folderToCopyTo to "Macintosh HD:Users:coop:Dropbox:Coding:Projects:coopcoding.com:darkle.github.io:assets:images:blogpostimages"
+    set textToReplace to "file:///Users/coop/Dropbox/Coding/Projects/coopcoding.space/coopcoding.space_jekyll_version"
+    set folderToCopyTo to "Macintosh HD:Users:coop:Dropbox:Coding:Projects:coopcoding.space:darkle.github.io:assets:images:blogpostimages"
     set convertedTextForClipboard to ""
 
     repeat with aFile in added_items
@@ -426,7 +426,7 @@ on adding folder items to this_folder after receiving added_items
       end tell
 
       --the last & is for a new line in case there is more than one image
-      set convertedTextForClipboard to convertedTextForClipboard & (get replaceText(textToReplace, "http://coopcoding.com", fileURL)) & "
+      set convertedTextForClipboard to convertedTextForClipboard & (get replaceText(textToReplace, "http://coopcoding.space", fileURL)) & "
 "
       set filePosixURL to get replaceText("file://", "", fileURL)
 
@@ -438,7 +438,7 @@ on adding folder items to this_folder after receiving added_items
 
     set the clipboard to convertedTextForClipboard
 
-    do shell script "DATE_TIME=$(date +'%Y-%m-%d %H:%M:%S') && cd '/Users/coop/Dropbox/Coding/Projects/coopcoding.com/darkle.github.io/' && git add . && git commit -a -m 'Post $DATE_TIME' && git push origin master && export PATH=/usr/local/bin:$PATH && terminal-notifier -title 'Git Push for CoopCoding Static Images Done' -message '' -open 'https://github.com/Darkle/darkle.github.io'"
+    do shell script "DATE_TIME=$(date +'%Y-%m-%d %H:%M:%S') && cd '/Users/coop/Dropbox/Coding/Projects/coopcoding.space/darkle.github.io/' && git add . && git commit -a -m 'Post $DATE_TIME' && git push origin master && export PATH=/usr/local/bin:$PATH && terminal-notifier -title 'Git Push for CoopCoding Static Images Done' -message '' -open 'https://github.com/Darkle/darkle.github.io'"
 
   on error errMsg
     display dialog "ERROR: " & errMsg

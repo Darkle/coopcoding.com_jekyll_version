@@ -9,7 +9,7 @@ When developing with Webstorm, I usually find myself restarting gulp tons of tim
 I set up [Better Touch Tool](http://www.boastr.net) to do the following:
 
 * On Control+g, focus Webstorm
-* Then trigger the Control+Tab keys to bring up the switcher in Webstorm ![Webstorm Switcher](http://coopcoding.com/assets/images/blogpostimages/webstorm-switcher.png)
+* Then trigger the Control+Tab keys to bring up the switcher in Webstorm ![Webstorm Switcher](http://coopcoding.space/assets/images/blogpostimages/webstorm-switcher.png)
 * Then trigger 8 key to select the terminal panel (I prefer running gulp from the terminal panel rather than it's own panel)
 * Then trigger Control+c twice to exit gulp/grunt/node
 * Then paste the text "gulp" in to the terminal panel
@@ -17,4 +17,4 @@ I set up [Better Touch Tool](http://www.boastr.net) to do the following:
 
 Here is a screenshot of it in Better Touch Tool:
 
-![Better Touch Tool Screenshot](http://coopcoding.com/assets/images/blogpostimages/BetterTouchTool.png)
+![Better Touch Tool Screenshot](http://coopcoding.space/assets/images/blogpostimages/BetterTouchTool.png)
